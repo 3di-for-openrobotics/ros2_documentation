@@ -16,9 +16,9 @@ Nodes
    nodes/Working-with-nodes
 
 Nodes are processes that perform computation and can communicate with other nodes using topics, services, and actions. 
-This article explains what nodes are and how they work.  
+This article describes what nodes do and how they interact.  
 
-[Area: Framework | Content-type: concept | Experience: beginner]
+**[Area: Framework | Content-type: concept | Experience: beginner]**
 
 .. contents:: Table of Contents
    :local:
