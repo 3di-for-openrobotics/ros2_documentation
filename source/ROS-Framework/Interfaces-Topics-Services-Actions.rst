@@ -27,6 +27,9 @@ With this information, you'll be able to select the right interfaces for your pu
 
 Summary
 -------
+When designing a system there are three primary styles of interfaces.
+The specifications for the content is in the :doc:`Interfaces Overview <About-Interfaces>`.
+This is written to provide the reader with guidelines about when to use each type of interface.
 
 ROS nodes typically communicate through the following three types of interfaces:
 
@@ -60,8 +63,17 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
+
+* Should be used for continuous data streams (sensor data, robot state, ...)
+* Are for continuous data flow.
+  Data might be published and subscribed at any time independent of any senders/receivers.
+  Many to many connection.
+  Callbacks receive data once it is available.
+  The publisher decides when data is sent.
+
 Topic statistics
-----------------
+^^^^^^^^^^^^^^^^
+
 Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
 When enabled, they automatically track two things:
 
@@ -100,6 +112,10 @@ This interface type has the following main characteristics:
     Service client->>Service server: Request
     Service server-->>Service client: Response
 
+
+* Should be used for remote procedure calls that terminate quickly, e.g. for querying the state of a node or doing a quick calculation such as IK.
+  They should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur and they should never change or depend on state to avoid unwanted side effects for other nodes.
+
 Actions
 -------
 
@@ -119,6 +135,15 @@ This interface type has the following main characteristics:
     Client->>Action Server: Sends a goal
     Action server-->>Action client: Provides feedback (periodic)
     Action server-->>Action client: Sends a result
+
+    * Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
+* The most important property of actions is that they can be preempted and preemption should always be implemented cleanly by action servers.
+* Actions can keep state for the lifetime of a goal, i.e. if executing two action goals in parallel on the same server, for each client a separate state instance can be kept since the goal is uniquely identified by its id.
+* Slow perception routines which take several seconds to terminate or initiating a lower-level control mode are good use cases for actions.
+* More complex non-blocking background processing.
+  Used for longer tasks like execution of robot actions.
+  Semantically for real-world actions.
+
 
 Key differences between ROS interfaces
 --------------------------------------
