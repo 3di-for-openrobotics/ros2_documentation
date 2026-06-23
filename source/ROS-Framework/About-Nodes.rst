@@ -76,7 +76,7 @@ Related content
 * :doc:`nodes/About-Discovery`
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
-* :doc:`interfaces/Topics-Services-Actions`
+* :doc:`Interfaces-Topics-Services-Actions`
 * :doc:`nodes/Working-with-nodes`   
 
 FAQs

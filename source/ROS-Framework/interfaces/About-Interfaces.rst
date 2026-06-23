@@ -2,14 +2,13 @@
 
     Concepts/Basic/About-Interfaces
 
-Interfaces
+Interface specifications
 ==========
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   Topics-Services-Actions
    About-Tf2/About-Tf2
    Working-with-interfaces
 
