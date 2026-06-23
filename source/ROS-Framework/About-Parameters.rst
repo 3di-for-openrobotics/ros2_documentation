@@ -13,27 +13,40 @@ Parameters
 
    parameters/Working-with-parameters
 
+Parameters are used to configure nodes at startup (and during runtime), without changing the code.
+This article describes parameters and how they work. 
+
+
+**[Area: Framework | Content-type: Concept | Experience: Beginner]**
+
 .. contents:: Table of Contents
    :local:
 
-Overview
---------
+Summary
+-------
 
+Parameters in ROS 2 are associated with individual nodes.
+Parameters are used to configure nodes at startup (and during runtime), without changing the code.
+
+Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
+
+Each parameter consists of:
+
+* a key - a string
+* a value - one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
+* a descriptor - empty by default, but can contain parameter descriptions, value ranges, type information, and additional constraints.
+
+The ``ros2 param`` command or client libraries are the general way to interact with parameters.
+
+For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
+
+Parameters
+----------
 Parameters in ROS 2 are associated with individual nodes.
 Parameters are used to configure nodes at startup (and during runtime), without changing the code.
 The lifetime of a parameter is tied to the lifetime of the node (though the node could implement some sort of persistence to reload values after restart).
 
-Parameters are addressed by node name, node namespace, parameter name, and parameter namespace.
-Providing a parameter namespace is optional.
-
-Each parameter consists of a key, a value, and a descriptor.
-The key is a string and the value is one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
-By default all descriptors are empty, but can contain parameter descriptions, value ranges, type information, and additional constraints.
-
-For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
-
-Parameters background
----------------------
+Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
 
 Declaring parameters
 ^^^^^^^^^^^^^^^^^^^^
@@ -48,7 +61,19 @@ In these cases, the node can be instantiated with ``allow_undeclared_parameters`
 Parameter types
 ^^^^^^^^^^^^^^^
 
-Each parameter on a ROS 2 node has one of the pre-defined parameter types as mentioned in the Overview.
+Each parameter on a ROS 2 node has one of the pre-defined parameter types:
+* ``bool``
+* ``int64``
+* ``float64``
+* ``string``
+* ``byte[]``
+* ``bool[]``
+* ``int64[]``
+* ``float64[]``
+* ``string[]``
+
+By default all descriptors are empty, but can contain parameter descriptions, value ranges, type information, and additional constraints.
+
 By default, attempts to change the type of a declared parameter at runtime will fail.
 This prevents common mistakes, such as putting a boolean value into an integer parameter.
 
@@ -60,6 +85,10 @@ Parameter callbacks
 
 A ROS 2 node can register three different types of callbacks to be informed when changes are happening to parameters.
 All three of the callbacks are optional.
+
+#. Pre-set parameter callback
+#. Set parameter callback
+#. Post-set parameter callback
 
 The first is known as a "pre set parameter" callback, and can be set by calling ``add_pre_set_parameters_callback`` from the node API.
 This callback is passed a list of the ``Parameter`` objects that are being changed, and returns nothing.
@@ -137,3 +166,11 @@ Migrating from ROS 1
 The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
 
 The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
+
+Related content
+---------------
+* :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
+
+FAQs
+----
+<placeholder>
