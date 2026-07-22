@@ -23,8 +23,9 @@ Background
 
 ROS 2 relies on the notion of combining workspaces using the shell environment.
 "Workspace" is a ROS term for the location on your system where you're developing with ROS 2.
-The core ROS 2 workspace is called the underlay.
-Subsequent local workspaces are called overlays.
+In a typical ROS 2 setup, the core ROS 2 installation is the underlay.
+A local workspace sourced after that installation is an overlay because it is layered on top of the underlay.
+The same workspace can act as an underlay for another workspace that is sourced later.
 When developing with ROS 2, you will typically have several workspaces active concurrently.
 
 Combining workspaces makes developing against different versions of ROS 2, or against different sets of packages, easier.
@@ -163,7 +164,7 @@ If you need more specific help (because environment setup files can come from di
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the `domain ID <../../Concepts/Intermediate/About-Domain-ID>` article for details on ROS domain IDs.
+See the `domain ID </ROS-Framework/nodes/About-Domain-ID>` article for details on ROS domain IDs.
 
 Once you have determined a unique integer for your group of ROS 2 nodes, you can set the environment variable with the following command:
 
