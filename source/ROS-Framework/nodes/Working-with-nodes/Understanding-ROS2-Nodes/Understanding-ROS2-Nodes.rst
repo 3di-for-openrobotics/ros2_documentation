@@ -36,15 +36,7 @@ A hands-on exercise gives you practice listing active nodes and examining their 
 
 Summary
 -------
-
-Each node in ROS serves a single, modular purpose in a robotics system.
-For more information, see :doc:`About nodes <../../../About-Nodes>`.
-
-Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
-A single executable can contain one or more nodes.
-For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
-
-The commands used in this tutorial were:
+The commands used in this tutorial are:
 
 * To run turtlesim, use the command ``ros2 run turtlesim turtlesim_node``.
 * To display the names of all running nodes, use the command ``ros2 node list``.
@@ -52,8 +44,9 @@ The commands used in this tutorial were:
 
 Prerequisites
 -------------
-
-:doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+* :doc:`ROS Graph <../../../../ROS-Framework/How-ROS-Works>` explains how ROS works at a high level
+* :doc:`nodes <../../../../ROS-Framework/About-Nodes>` explains what nodes are in ROS
+* :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
 .. note::
     Make sure to source ROS in every new terminal you open.
