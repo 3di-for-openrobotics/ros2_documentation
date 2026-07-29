@@ -1,5 +1,21 @@
-Writing an async node with asyncio (Python)
-===========================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing an async node with asyncio (Python) - tutorial
+======================================================
+
+.. short-description::
+   Asyncio is useful when Python nodes need to wait on services, timers, or external libraries without blocking other callbacks.
+   This tutorial shows how to create a package, write an ``AsyncNode`` service and client, and run them together.
+   After following it, you will be able to build nodes that compose naturally with Python async code.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a service and client using ``AsyncNode``, the asyncio-native node API.
 
@@ -34,7 +50,7 @@ Prerequisites
 -------------
 
 - You should have completed the :doc:`beginner service and client tutorial <../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
-- You should be comfortable with basic :py:mod:`asyncio` concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and :py:func:`asyncio.run`.
+- You should be comfortable with basic `asyncio <https://docs.python.org/3/library/asyncio.html>`__ concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and `asyncio.run <https://docs.python.org/3/library/asyncio-runner.html#asyncio.run>`__.
 - ``AsyncNode`` currently lives in ``rclpy.experimental`` and requires Python 3.12 or newer.
 
 Tasks
