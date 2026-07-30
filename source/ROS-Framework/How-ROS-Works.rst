@@ -4,7 +4,7 @@ How ROS works
 A ROS system is a network of cooperating processes that exchange data.
 This article explains the ROS graph and how the main framework pieces relate to one another.
 
-**Area: Framework | Content-type: concept | Experience: beginner**
+**Area: Framework | Content-type: about | Experience: beginner**
 
 .. contents:: Table of Contents
    :depth: 2
@@ -28,12 +28,11 @@ ROS command-line tools allow you to explore a live graph before writing your own
 The ROS graph
 -------------
 
-The ROS graph is a network of ROS elements processing data together at the same time.
-It includes the nodes that are running and the connections between them.
-If you mapped those participants and links, you would see how data and requests move through the system.
+The ROS graph is the set of running nodes and the connections between them.
+Those connections carry data and requests through the system while the nodes run together.
 
 A full robotic system is usually many nodes working together.
-In ROS, a single executable (for example a C++ or Python program) can contain one or more nodes.
+In ROS, a single executable, for example a C++ or Python program, can contain one or more nodes.
 
 .. mermaid::
 
@@ -42,13 +41,13 @@ In ROS, a single executable (for example a C++ or Python program) can contain on
       N1 -->|service| N3[Node C]
       N2 -->|action| N4[Node D]
 
-The diagram is simplified.
+This diagram is simplified.
 Real systems often combine several of these patterns inside the same nodes.
 
 Nodes
 -----
 
-Each node should be responsible for a single modular purpose, for example controlling wheel motors or publishing laser range-finder data.
+Each node is typically responsible for one modular purpose, for example, controlling wheel motors or publishing laser range-finder data.
 Nodes can communicate with other nodes in the same process, in another process, or on another machine.
 
 A node can publish and subscribe to topics, act as a service client or server, act as an action client or server, and expose parameters, often all at once.
@@ -56,7 +55,8 @@ A node can publish and subscribe to topics, act as a service client or server, a
 .. image:: nodes/Working-with-nodes/Understanding-ROS2-Nodes/images/Nodes-TopicandService.gif
    :alt: Diagram of nodes connected by a topic and a service
 
-Nodes find each other through distributed :doc:`discovery <nodes/About-Discovery>`.
+Nodes find one another through distributed :doc:`discovery <nodes/About-Discovery>`.
+
 For more information, see :doc:`About nodes <About-Nodes>`.
 
 Topics
@@ -66,7 +66,7 @@ Topics are the main way continuous data moves through the graph.
 They use a publish and subscribe pattern: publishers send messages on a named topic, and subscribers receive those messages.
 
 A node may publish to any number of topics and subscribe to any number of topics at the same time.
-Typical uses include sensor streams, robot state, and velocity commands.
+Typical uses of topics include sensor streams, robot state, and velocity commands.
 
 .. image:: interfaces/topics/Understanding-ROS2-Topics/images/Topic-SinglePublisherandSingleSubscriber.gif
    :alt: One publisher sending messages to one subscriber over a topic
@@ -74,7 +74,8 @@ Typical uses include sensor streams, robot state, and velocity commands.
 .. image:: interfaces/topics/Understanding-ROS2-Topics/images/Topic-MultiplePublisherandMultipleSubscriber.gif
    :alt: Multiple publishers and subscribers sharing topics
 
-Because topics behave like a bus, introspection tools can join the same stream without changing the original publishers or subscribers.
+Because any number of subscribers can listen to the same topic, introspection tools such as ``ros2 topic echo`` can inspect the stream without changing the original publishers or subscribers.
+
 For more information, see :doc:`About topics <interfaces/About-Topics>`.
 
 Services
@@ -83,7 +84,7 @@ Services
 Services use a call-and-response model.
 A client sends a request, and a server returns a single response.
 
-Use topics when you need continual updates.
+Use topics when you need continuous updates.
 Use services when you need an on-demand result for a short task, such as spawning an entity or asking for a quick computation.
 
 .. image:: interfaces/services/Working-with-services/Understanding-ROS2-Services/images/Service-SingleServiceClient.gif
@@ -107,8 +108,9 @@ The server acknowledges the goal, streams feedback, and returns a result.
 .. image:: interfaces/actions/Working-with-actions/Understanding-ROS2-Actions/images/Action-SingleActionClient.gif
    :alt: Action client sending a goal to an action server and receiving feedback
 
-Typical uses include navigating to a pose or running any procedure that takes noticeable time and needs progress updates.
-For more information, see :doc:`About actions <interfaces/About-Actions>` and the comparison in :doc:`Interfaces (topics, services, actions) <Interfaces-Topics-Services-Actions>`.
+Typical uses of actions include navigating to a pose or running any procedure that takes noticeable time and needs progress updates.
+
+For more information, see :doc:`About actions <interfaces/About-Actions>` and :doc:`Interfaces (topics, services, actions) <Interfaces-Topics-Services-Actions>`.
 
 Parameters
 ----------
@@ -122,14 +124,17 @@ You can set them at startup and often change them while the node is running, wit
 
 Parameters configure behaviour in the graph.
 They are not a data stream like a topic.
+
 For more information, see :doc:`About parameters <About-Parameters>`.
 
 Command-line tools and APIs
 ---------------------------
 
-The ROS command-line interface (CLI) and the ROS application programming interfaces (APIs) both interact with the ROS graph, but they serve different purposes.
+The ROS command-line interface (CLI) and the ROS application programming interfaces (APIs) both interact with the ROS graph, but they are different tools with different purposes.
 
-The CLI lets you interact with a live graph: list nodes, inspect topics, call services, send action goals, and set parameters.
+The CLI lets you work with a live graph: list nodes, inspect topics, call services, send action goals, and set parameters.
+When you are learning the framework, learn the CLI first.
+It shows you the core ROS concepts and how to interact with them before you create those pieces yourself.
 
 :doc:`Client libraries <About-Client-Libraries>` provide the APIs you use to write nodes and other ROS components in languages such as C++ and Python.
 Nodes written with different client libraries can still communicate because they share the same interface definitions and middleware.
