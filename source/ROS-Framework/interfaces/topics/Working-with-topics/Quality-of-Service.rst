@@ -4,6 +4,9 @@
     Tutorials/Quality-of-Service
     Tutorials/Demos/Quality-of-Service
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Using quality-of-service settings for lossy networks
 ====================================================
 
@@ -186,3 +189,14 @@ When you're done, remember to delete the queueing discipline:
 .. code-block:: console
 
    $ sudo tc qdisc delete dev lo root netem loss 5%
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

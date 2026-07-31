@@ -3,6 +3,9 @@
     Tutorials/Tf2/Writing-A-Tf2-Listener-Py
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py
 
+.. meta::
+   :area: client-libraries, framework
+
 Writing a listener (Python)
 ===========================
 
@@ -367,3 +370,14 @@ Summary
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
 You also have finished writing your own turtlesim demo that you first tried in :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

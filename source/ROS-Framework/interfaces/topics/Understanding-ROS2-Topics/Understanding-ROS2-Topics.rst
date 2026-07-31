@@ -5,6 +5,9 @@
 
 .. _ROS2Topics:
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Understanding topics
 ====================
 
@@ -548,3 +551,14 @@ Next steps
 ----------
 
 Next you'll learn about another communication type in the ROS graph with the tutorial :doc:`../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

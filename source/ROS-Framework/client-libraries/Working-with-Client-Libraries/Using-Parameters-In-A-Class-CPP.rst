@@ -5,6 +5,9 @@
 
 .. _CppParamNode:
 
+.. meta::
+   :area: client-libraries, framework
+
 Using parameters in a class (C++)
 =================================
 
@@ -438,3 +441,14 @@ Related content
 
 * For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
 * If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (C++) <../../parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

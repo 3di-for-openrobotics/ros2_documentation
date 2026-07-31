@@ -2,6 +2,9 @@
 
     Tutorials/Intermediate/Writing-a-Composable-Node
 
+.. meta::
+   :area: nodes, framework
+
 Writing a Composable Node (C++)
 ===============================
 
@@ -173,3 +176,14 @@ you can replace it with
 .. caution::
 
     If you need multi-threading, simply add the ``--executor-type multi-threaded`` argument to your container node.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

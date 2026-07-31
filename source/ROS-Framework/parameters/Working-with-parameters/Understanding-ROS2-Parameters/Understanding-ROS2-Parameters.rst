@@ -5,6 +5,9 @@
 
 .. _ROS2Params:
 
+.. meta::
+   :area: parameters, framework
+
 Understanding parameters
 ========================
 
@@ -250,3 +253,14 @@ Next steps
 ----------
 
 Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../../../interfaces/actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

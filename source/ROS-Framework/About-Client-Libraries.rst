@@ -6,6 +6,9 @@
 
 .. include:: ../../global_substitutions.txt
 
+.. meta::
+   :area: client-libraries, framework
+
 Client libraries
 ================
 
@@ -134,3 +137,14 @@ Summary
 -------
 
 By utilizing the common core ROS client library, client libraries written in a variety of programming languages are easier to write and have more consistent behavior.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

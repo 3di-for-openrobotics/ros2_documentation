@@ -5,6 +5,9 @@
 
 .. _CustomInterfaces:
 
+.. meta::
+   :area: client-libraries, framework
+
 Creating custom msg and srv files
 =================================
 
@@ -798,3 +801,14 @@ Next steps
 ----------
 
 The :doc:`next tutorial <Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -3,6 +3,9 @@
     Tutorials/Tf2/Adding-A-Frame-Py
     Tutorials/Intermediate/Tf2/Adding-A-Frame-Py
 
+.. meta::
+   :area: client-libraries, framework
+
 Adding a frame (Python)
 =======================
 
@@ -541,3 +544,14 @@ Summary
 
 In this tutorial, you learned about the tf2 transformation tree, its structure, and its features.
 You also learned that it is easiest to think inside a local frame, and learned to add extra fixed and dynamic frames for that local frame.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

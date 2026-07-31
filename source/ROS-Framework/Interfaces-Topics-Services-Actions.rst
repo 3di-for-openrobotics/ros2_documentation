@@ -6,6 +6,9 @@
 .. _interfaces-topics-services-actions:
 .. _TopicsServicesActions:
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Interfaces (topics, services, actions)
 ======================================
 
@@ -135,3 +138,14 @@ The table below summarizes the differences between ROS interface types:
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
 | **Actions**  | Goal/Feedback/Result | Two-way with feedback | Yes             | Long-running tasks | Supported     |
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -1,3 +1,6 @@
+.. meta::
+   :area: interfaces, framework
+
 Writing a ``rosidl::Buffer`` compatible conversions package
 ===========================================================
 
@@ -341,3 +344,14 @@ Where to go next
   publishing and subscribing with buffer-backed tensor messages.
 * :doc:`Writing-a-Buffer-Backend` -- implementer guide for creating a new
   storage backend when an existing backend is not enough.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

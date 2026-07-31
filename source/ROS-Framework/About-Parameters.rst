@@ -4,6 +4,9 @@
     Concepts/About-ROS-2-Parameters
     Concepts/Basic/About-Parameters
 
+.. meta::
+   :area: parameters, framework
+
 Parameters
 ==========
 
@@ -137,3 +140,14 @@ Migrating from ROS 1
 The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
 
 The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

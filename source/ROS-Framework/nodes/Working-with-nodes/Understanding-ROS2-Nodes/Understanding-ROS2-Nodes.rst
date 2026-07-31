@@ -5,6 +5,9 @@
 
 .. _ROS2Nodes:
 
+.. meta::
+   :area: nodes, framework
+
 Understanding nodes
 ===================
 
@@ -195,3 +198,14 @@ Related content
 ---------------
 
 The :doc:`../../../About-Nodes` page adds some more detail to the concept of nodes.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

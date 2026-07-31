@@ -5,6 +5,9 @@
 
 .. _PyPubSub:
 
+.. meta::
+   :area: client-libraries, framework
+
 Writing a simple publisher and subscriber (Python)
 ==================================================
 
@@ -514,3 +517,14 @@ Related content
 ---------------
 
 There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/topics>`_ repo.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -1,5 +1,8 @@
 
 
+.. meta::
+   :area: nodes, framework
+
 Working with nodes
 ==================
 
@@ -18,3 +21,14 @@ Coming Soon
    Working-with-nodes/intra-process/Intra-Process-Communication
    Working-with-nodes/Using-callback-groups
    Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

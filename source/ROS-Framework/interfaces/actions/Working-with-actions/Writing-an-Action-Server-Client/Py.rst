@@ -5,6 +5,9 @@
 
 .. _ActionsPy:
 
+.. meta::
+   :area: actions, interfaces, framework
+
 Writing an action server and client (Python)
 ============================================
 
@@ -363,3 +366,14 @@ Related content
 * There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/actions>`_ repo.
 
 * For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

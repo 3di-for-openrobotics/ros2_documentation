@@ -1,3 +1,6 @@
+.. meta::
+   :area: client-libraries, framework
+
 Working with Client libraries
 =============================
 
@@ -26,3 +29,14 @@ Working with Client libraries
    Working-with-Client-Libraries/Reading-From-A-Bag-File-Python
    Working-with-Client-Libraries/Creating-An-RMW-Implementation
    Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

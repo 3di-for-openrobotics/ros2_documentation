@@ -1,5 +1,8 @@
 
 
+.. meta::
+   :area: parameters, framework
+
 Working with parameters
 =======================
 
@@ -13,3 +16,13 @@ Coming Soon
    Working-with-parameters/Monitoring-For-Parameter-Changes-Python
    Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
 
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -3,6 +3,9 @@
    Concepts/About-Domain-ID
    Concepts/Intermediate/About-Domain-ID
 
+.. meta::
+   :area: nodes, framework
+
 The ROS_DOMAIN_ID
 =================
 
@@ -162,3 +165,14 @@ Domain ID to UDP Port Calculator
         userUnicastPort.value = PB + (DG * domainID.value) + d3 + (PG * participantID.value);
       }
     </script>
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

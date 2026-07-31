@@ -1,5 +1,8 @@
 
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Working with topics
 ===================
 
@@ -13,3 +16,14 @@ Coming Soon
    Working-with-topics/Content-Filtering-Subscription
    Working-with-topics/Quality-of-Service
    Working-with-topics/Wait-for-Acknowledgment
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

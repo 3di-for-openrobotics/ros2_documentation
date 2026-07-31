@@ -3,6 +3,9 @@
    Concepts/About-Composition
    Concepts/Intermediate/About-Composition
 
+.. meta::
+   :area: nodes, framework
+
 Composition
 ===========
 
@@ -136,3 +139,14 @@ Practical application
 ---------------------
 
 Try the :doc:`Composition demos <Working-with-nodes/Composition>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

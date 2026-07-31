@@ -2,6 +2,9 @@
 
     Tutorials/Advanced/Reading-From-A-Bag-File-CPP
 
+.. meta::
+   :area: client-libraries, framework
+
 Reading from a bag file (C++)
 =============================
 
@@ -325,3 +328,14 @@ Summary
 
 You created a C++ executable that reads data from a bag.
 You then compiled and ran the executable which printed some information from the bag to the console.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

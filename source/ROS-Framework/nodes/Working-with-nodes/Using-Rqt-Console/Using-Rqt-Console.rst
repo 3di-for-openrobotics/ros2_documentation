@@ -5,6 +5,9 @@
 
 .. _rqt_console:
 
+.. meta::
+   :area: nodes, framework
+
 Using ``rqt_console`` to view logs
 ==================================
 
@@ -131,3 +134,14 @@ Next steps
 ----------
 
 The next tutorial will teach you about starting multiple nodes at once with :doc:`ROS 2 Launch <../Launching-Multiple-Nodes/Launching-Multiple-Nodes>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

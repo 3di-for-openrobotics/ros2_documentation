@@ -5,6 +5,9 @@
 
 .. _ROS2Services:
 
+.. meta::
+   :area: services, interfaces, framework
+
 Understanding services
 ======================
 
@@ -414,3 +417,14 @@ Related content
 ---------------
 
 Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of ROS services using a Robotis robot arm.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

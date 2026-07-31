@@ -5,6 +5,9 @@
 
 .. _Ros2Doctor:
 
+.. meta::
+   :area: client-libraries, framework
+
 Using ``ros2doctor`` to identify issues
 =======================================
 
@@ -216,3 +219,14 @@ Next steps
 ----------------
 
 You've completed the beginner level tutorials!
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

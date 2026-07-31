@@ -3,6 +3,9 @@
     Tutorials/Pluginlib
     Tutorials/Beginner-Client-Libraries/Pluginlib
 
+.. meta::
+   :area: client-libraries, framework
+
 Creating and using plugins (C++)
 ================================
 
@@ -376,3 +379,14 @@ Summary
 
 Congratulations!
 You've just written and used your first plugins.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

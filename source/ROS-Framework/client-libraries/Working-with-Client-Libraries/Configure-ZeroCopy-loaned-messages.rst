@@ -3,6 +3,9 @@
   How-To-Guides/Disabling-ZeroCopy-loaned-messages
   How-To-Guides/Configure-ZeroCopy-loaned-messages
 
+.. meta::
+   :area: client-libraries, framework
+
 Configure Zero Copy Loaned Messages
 ===================================
 
@@ -276,3 +279,14 @@ To enable *Loaned Messages* on subscription, you need to set the environment var
       .. code-block:: console
 
         $ setx ROS_DISABLE_LOANED_MESSAGES 0
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

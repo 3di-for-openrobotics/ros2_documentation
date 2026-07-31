@@ -2,6 +2,9 @@
 
     Concepts/Basic/About-Services
 
+.. meta::
+   :area: services, interfaces, framework
+
 Services
 ========
 .. toctree::
@@ -59,3 +62,14 @@ A service client is an entity that will request a remote service server to perfo
 Following from the example above, the service client is the entity that creates the initial message containing ``a`` and ``b``, and waits for the service server to compute the sum and return the result.
 
 Unlike the service server, there can be arbitrary numbers of service clients using the same service name.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

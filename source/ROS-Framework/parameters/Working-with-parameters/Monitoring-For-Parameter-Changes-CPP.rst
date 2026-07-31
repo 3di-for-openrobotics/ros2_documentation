@@ -3,6 +3,9 @@
     Tutorials/Monitoring-For-Parameter-Changes-CPP
     Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP
 
+.. meta::
+   :area: parameters, framework
+
 Monitoring for parameter changes (C++)
 ======================================
 
@@ -462,3 +465,14 @@ Related content
 ---------------
 
 To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` tutorial.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

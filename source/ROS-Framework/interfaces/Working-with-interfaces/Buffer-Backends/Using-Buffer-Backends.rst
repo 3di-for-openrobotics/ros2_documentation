@@ -1,3 +1,6 @@
+.. meta::
+   :area: interfaces, framework
+
 Using ``rosidl::Buffer`` backends
 =================================
 
@@ -385,3 +388,14 @@ Interaction with other transport features
 * :doc:`Intra-process communication <../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
   is orthogonal: a backend may implement its own intra-process fast path
   (the CUDA backend does), but the decision is up to the backend.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

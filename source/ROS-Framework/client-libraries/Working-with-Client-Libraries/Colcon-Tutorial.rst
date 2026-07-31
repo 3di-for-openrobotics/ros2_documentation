@@ -6,6 +6,9 @@
     Tutorials/Colcon-Tutorial
     Tutorials/Beginner-Client-Libraries/Colcon-Tutorial
 
+.. meta::
+   :area: client-libraries, framework
+
 Using ``colcon`` to build packages
 ==================================
 
@@ -395,3 +398,14 @@ Then, try out using the ``debug`` mixin:
     $ colcon build --mixin debug
 
 For more details, see  the `colcon mixin repository <https://github.com/colcon/colcon-mixin-repository>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

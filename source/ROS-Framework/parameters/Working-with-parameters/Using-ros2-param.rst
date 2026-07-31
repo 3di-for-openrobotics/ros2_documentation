@@ -2,6 +2,9 @@
 
     How-To-Guides/Using-ros2-param
 
+.. meta::
+   :area: parameters, framework
+
 Using the ``ros2 param`` command-line tool
 ==========================================
 
@@ -129,3 +132,14 @@ That is, this command can reload values at runtime that were dumped out by ``ros
 .. code-block:: console
 
   $ ros2 param load /my_node my_node.yaml
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

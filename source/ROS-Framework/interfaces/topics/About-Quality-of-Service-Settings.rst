@@ -4,6 +4,9 @@
     Concepts/About-Quality-of-Service-Settings
     Concepts/Intermediate/About-Quality-of-Service-Settings
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Quality of Service settings
 ===========================
 
@@ -334,3 +337,14 @@ There are demos showing how to use the event:
 
 * rclcpp: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__
 * rclpy: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -3,6 +3,9 @@
    Concepts/About-Tf2
    Concepts/Intermediate/About-Tf2
 
+.. meta::
+   :area: interfaces, framework
+
 Tf2
 ===
 
@@ -159,3 +162,14 @@ Paper
 -----
 
 There is a paper on tf2 presented at TePRA 2013: `tf: The transform library <https://ieeexplore.ieee.org/abstract/document/6556373>`_.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

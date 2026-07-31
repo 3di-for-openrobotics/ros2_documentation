@@ -4,6 +4,9 @@
     Tutorials/Managed-Nodes
     Tutorials/Demos/Managed-Nodes
 
+.. meta::
+   :area: nodes, framework
+
 Managing node lifecycles - example
 ==================================
 
@@ -53,3 +56,14 @@ Packages/reference:
 * `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`_ (implementation library): Package containing a prototype for lifecycle implementation.
 * `lifecycle_msgs <https://index.ros.org/p/lifecycle_msgs/>`_ (interface definitions): Package containing some lifecycle related message and service definitions.
 * `lifecycle <https://docs.ros.org/en/{DISTRO}/p/lifecycle/>`_: Package containing demos for lifecycle implementation.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

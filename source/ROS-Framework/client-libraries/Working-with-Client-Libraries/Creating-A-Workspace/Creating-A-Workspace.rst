@@ -5,6 +5,9 @@
 
 .. _ROS2Workspace:
 
+.. meta::
+   :area: client-libraries, framework
+
 Creating a workspace
 ====================
 
@@ -403,3 +406,14 @@ Next steps
 ----------
 
 Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :doc:`create your own packages <../Creating-Your-First-ROS2-Package>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -6,6 +6,9 @@
     Tutorials/Single-Package-Define-And-Use-Interface
     Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
 
+.. meta::
+   :area: client-libraries, framework
+
 Implementing custom interfaces
 ==============================
 
@@ -470,3 +473,14 @@ Related content
 ---------------
 
 There are `several design articles <https://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

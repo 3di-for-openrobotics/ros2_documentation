@@ -5,6 +5,9 @@
 
 .. _ROS2Launch:
 
+.. meta::
+   :area: nodes, framework
+
 Launching nodes
 ===============
 
@@ -104,3 +107,14 @@ Next steps
 ----------
 
 In the next tutorial, :doc:`../../../interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2 bag``.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

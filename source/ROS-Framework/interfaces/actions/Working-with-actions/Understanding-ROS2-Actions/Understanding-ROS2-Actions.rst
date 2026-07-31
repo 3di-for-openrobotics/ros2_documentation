@@ -5,6 +5,9 @@
 
 .. _ROS2Actions:
 
+.. meta::
+   :area: actions, interfaces, framework
+
 Understanding actions
 =====================
 
@@ -423,3 +426,14 @@ Related content
 ---------------
 
 You can read more about the design decisions behind actions in ROS 2 `here <https://design.ros2.org/articles/actions.html>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

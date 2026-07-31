@@ -4,6 +4,9 @@
     Concepts/About-Topic-Statistics
     Concepts/Intermediate/About-Topic-Statistics
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Topic statistics
 ================
 
@@ -70,3 +73,14 @@ Support
 This feature is currently supported in ROS 2 Foxy for C++ only (rclcpp).
 Future work and improvements, such as Python support, can be found
 `here <https://github.com/ros2/ros2/issues/917>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

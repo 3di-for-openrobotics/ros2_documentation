@@ -5,6 +5,9 @@
 
 .. _ActionCreate:
 
+.. meta::
+   :area: actions, interfaces, framework
+
 Creating an action
 ==================
 
@@ -221,3 +224,14 @@ Related content
 ---------------
 
 For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

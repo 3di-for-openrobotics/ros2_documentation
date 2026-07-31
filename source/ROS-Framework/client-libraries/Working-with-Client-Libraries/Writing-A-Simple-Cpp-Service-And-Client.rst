@@ -5,6 +5,9 @@
 
 .. _CppSrvCli:
 
+.. meta::
+   :area: client-libraries, framework
+
 Writing a simple service and client (C++)
 =========================================
 
@@ -408,3 +411,14 @@ Related content
 ---------------
 
 * There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/services>`_ repo.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

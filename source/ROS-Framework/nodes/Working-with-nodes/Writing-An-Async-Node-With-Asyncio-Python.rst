@@ -1,3 +1,6 @@
+.. meta::
+   :area: nodes, framework
+
 Writing an async node with asyncio (Python)
 ===========================================
 
@@ -496,3 +499,14 @@ Summary
 
 You wrote an async service and client using ``AsyncNode``, with ``async def`` callbacks that can ``await`` long running operations.
 Because ``AsyncNode`` runs on ``asyncio``, your node can directly use the rest of the Python async ecosystem — web frameworks, messaging clients, database drivers, and more.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

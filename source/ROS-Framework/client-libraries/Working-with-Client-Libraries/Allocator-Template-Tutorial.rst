@@ -4,6 +4,9 @@
     Tutorials/Allocator-Template-Tutorial
     Tutorials/Advanced/Allocator-Template-Tutorial
 
+.. meta::
+   :area: client-libraries, framework
+
 Implementing a custom memory allocator
 ======================================
 
@@ -243,3 +246,14 @@ Note that the TLSF allocator is licensed under a dual-GPL/LGPL license.
 
 A full working example using the TLSF allocator is here:
 https://github.com/ros2/realtime_support/blob/{REPOS_FILE_BRANCH}/tlsf_cpp/example/allocator_example.cpp
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -5,6 +5,9 @@
 
 .. _ROS2BagOwnNode:
 
+.. meta::
+   :area: client-libraries, framework
+
 Recording a bag from a node (C++)
 =================================
 
@@ -679,3 +682,14 @@ Summary
 You created a node that records data it receives on a topic into a bag.
 You tested recording a bag using the node, and verified the data was recorded by playing back the bag.
 You then went on to create a node and an executable to generate synthetic data and store it in a bag.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

@@ -1,5 +1,8 @@
 
 
+.. meta::
+   :area: actions, interfaces, framework
+
 Working with actions
 ====================
 
@@ -13,3 +16,14 @@ Coming Soon
    Working-with-actions/Creating-an-Action
    Working-with-actions/Writing-an-Action-Server-Client/Cpp
    Working-with-actions/Writing-an-Action-Server-Client/Py
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

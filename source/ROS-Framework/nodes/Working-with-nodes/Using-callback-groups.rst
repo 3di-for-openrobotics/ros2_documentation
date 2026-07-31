@@ -2,6 +2,9 @@
 
     How-To-Guides/Using-callback-groups
 
+.. meta::
+   :area: nodes, framework
+
 Using Callback Groups
 =====================
 
@@ -580,3 +583,14 @@ repeatedly and service calls are completed.
 
       client_cb_group = ReentrantCallbackGroup()
       timer_cb_group = None
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

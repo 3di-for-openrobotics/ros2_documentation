@@ -5,6 +5,9 @@
 
 .. _PySrvCli:
 
+.. meta::
+   :area: client-libraries, framework
+
 Writing a simple service and client (Python)
 ============================================
 
@@ -393,3 +396,14 @@ Related content
 * In this tutorial, you used the ``call_async()`` API in your client node to call the service.
   There is another service call API available for Python called synchronous calls.
   We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients <../../interfaces/services/Working-with-services/Sync-Vs-Async>`.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

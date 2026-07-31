@@ -5,6 +5,9 @@
 
 .. _QuaternionFundamentals:
 
+.. meta::
+   :area: interfaces, framework
+
 Quaternion fundamentals
 =======================
 
@@ -244,3 +247,14 @@ Summary
 
 In this tutorial, you learned about the fundamental concepts of a quaternion and its related mathematical operations, like inversion and rotation.
 You also learned about its usage examples in ROS 2 and conversion methods between two separate Quaternion classes.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

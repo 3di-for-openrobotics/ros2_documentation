@@ -3,6 +3,9 @@
     Tutorials/Content-Filtering-Subscription
     Tutorials/Demos/Content-Filtering-Subscription
 
+.. meta::
+   :area: topics, interfaces, framework
+
 Creating a content filtering subscription
 =========================================
 
@@ -310,3 +313,14 @@ Related content
 
 - `content filtering examples <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__ that covers all interfaces for content filtering subscription.
 - `content filtering design PR <https://github.com/ros2/design/pull/282>`__
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::

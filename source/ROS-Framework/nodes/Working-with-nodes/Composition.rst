@@ -4,6 +4,9 @@
     Tutorials/Composition
     Tutorials/Intermediate/Composition
 
+.. meta::
+   :area: nodes, framework
+
 Composing multiple nodes in a single process
 ============================================
 
@@ -429,3 +432,14 @@ To create a component that is not derived from a node, follow these guidelines:
 Here's an example of a component that is not derived from a node, which listens to a ROS topic: `node_like_listener_component <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/node_like_listener_component.cpp>`__.
 
 For more information on this topic, you can refer to this `discussion <https://github.com/ros2/rclcpp/issues/2110#issuecomment-1454228192>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
+
+Related packages:
+
+.. ros-related-packages::
