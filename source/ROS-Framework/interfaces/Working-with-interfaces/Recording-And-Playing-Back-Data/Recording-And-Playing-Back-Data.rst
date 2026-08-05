@@ -193,7 +193,8 @@ You can move the turtle around and press :kbd:`Ctrl-C` when you're finished.
 
 .. note::
 
-    There is another option you can add to the command, ``-a``, which records all the topics on your system.
+    There is another option you can add to the command, ``-a`` / ``--all``, which records all topics, services, and actions.
+    To record only topics, use ``--all-topics``.
 
 3.3 Split recording into multiple files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,6 +221,11 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
 
 Press :kbd:`Ctrl-C` when you're finished.
 You should find a ``subset_split`` directory with these files inside: ``0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, ``1_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, and so on.
+
+.. note::
+
+   Split file naming changed in Lyrical.
+   On earlier distributions the files may instead look like ``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
 
 4 Inspect topic data
 ^^^^^^^^^^^^^^^^^^^^
@@ -332,6 +338,10 @@ This applies to playing a single bag as well.
 Managing Service Data
 ---------------------
 
+.. note::
+
+   Recording and playing back services requires Jazzy or a later distribution.
+
 1 Setup
 ^^^^^^^
 
@@ -406,7 +416,7 @@ To record specific services:
 
 .. code-block:: console
 
-  $ ros2 bag record --service <service_names>
+  $ ros2 bag record --services <service_names>
 
 To record all services:
 
@@ -418,7 +428,7 @@ Run the command:
 
 .. code-block:: console
 
-  $ ros2 bag record --service /add_two_ints
+  $ ros2 bag record --services /add_two_ints
   [INFO] [1713995957.643573503] [rosbag2_recorder]: Press SPACE for pausing/resuming
   [INFO] [1713995957.662067587] [rosbag2_recorder]: Event publisher thread: Starting
   [INFO] [1713995957.662067614] [rosbag2_recorder]: Listening for topics...
@@ -518,6 +528,10 @@ You can see the service request from the bag file and the service response from 
 Managing Action Data
 --------------------
 
+.. note::
+
+   Recording and playing back actions requires Kilted or a later distribution.
+
 1 Setup
 ^^^^^^^
 
@@ -578,7 +592,7 @@ To record specific actions:
 
 .. code-block:: console
 
-  $ ros2 bag record --action <action_names>
+  $ ros2 bag record --actions <action_names>
 
 To record all actions:
 
@@ -590,7 +604,7 @@ Run the command:
 
 .. code-block:: console
 
-  $ ros2 bag record --action /fibonacci
+  $ ros2 bag record --actions /fibonacci
   [INFO] [1744953225.214114862] [rosbag2_recorder]: Press SPACE for pausing/resuming
   [INFO] [1744953225.218369761] [rosbag2_recorder]: Listening for topics...
   [INFO] [1744953225.218386223] [rosbag2_recorder]: Event publisher thread: Starting
@@ -745,7 +759,7 @@ FAQs
 
 What does ``ros2 bag`` record?
    It can record data from topics, services, and actions in your ROS system.
-   You choose which interfaces to record with options such as ``--topics``, ``--service``, and ``--action``.
+   You choose which interfaces to record with options such as ``--topics``, ``--services``, and ``--actions``.
 
 Where are recordings saved?
    In a bag directory created in the working directory where you run ``ros2 bag record``.
