@@ -5,23 +5,29 @@
 
 .. _ROS2Bag:
 
-Recording and playing back data
-===============================
+Recording and playing back data - how-to
+========================================
 
-**Goal:** Record data published on a topic, a service and an action so you can replay and examine it any time.
+``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
+This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
+Worked examples cover the same pattern for topics, services, and actions.
 
-**Tutorial level:** Beginner
-
-**Time:** 20 minutes
+**Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
    :local:
 
+Summary
+-------
+
+Use ``ros2 bag record`` to save data from topics, services, and actions, ``ros2 bag info`` to inspect a recording, and ``ros2 bag play`` to replay it.
+Recordings are stored as bag directories that you can share or reuse to reproduce experiments.
+
 Background
 ----------
 
-``ros2 bag`` is a command line tool for recording data published on topics, services and actions in your ROS 2 system.
+``ros2 bag`` is a command line tool for recording data published on topics, services and actions in your ROS system.
 It accumulates the data passed on any number of topics, services and actions, then saves it in a database.
 You can then replay the data to reproduce the results of your tests and experiments.
 Recording topics, services and actions is also a great way to share your work and allow others to recreate it.
@@ -30,14 +36,14 @@ Recording topics, services and actions is also a great way to share your work an
 Prerequisites
 -------------
 
-You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
+#. ``ros2 bag`` installed as part of your regular ROS setup.
+   If you need to install ROS, see the :doc:`Installation instructions <../../../../Get-Started/Installation>`.
+#. Familiarity with :doc:`nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and :doc:`actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+#. The :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, :doc:`Service Introspection Demo <../../../../Developer-Tools/Introspection-and-analysis/Service-Introspection>`, and :doc:`Action Introspection Demo <../../actions/Working-with-actions/Action-Introspection>`.
 
-If you need to install ROS 2, see the :doc:`Installation instructions <../../../../Get-Started/Installation>`.
-
-This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>` and :doc:`actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
-It also uses the :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, :doc:`Service Introspection Demo <../../../../Developer-Tools/Introspection-and-analysis/Service-Introspection>` and :doc:`Action Introspection Demo <../../actions/Working-with-actions/Action-Introspection>`.
-
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
+.. note::
+    Source ROS in every new terminal you open.
+    See :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 
 Managing Topic Data
@@ -718,22 +724,39 @@ You can see the action goal request from the bag file and the service response f
   ---
   ...
 
-Summary
--------
-
-You can record data passed on topics, services and actions in your ROS 2 system using the ``ros2 bag`` command.
-Whether you're sharing your work with others or introspecting your own experiments, it's a great tool to know about.
-
-Next steps
-----------
-
-You've completed the "Beginner: CLI Tools" tutorials!
-The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../../../client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
-
 Related content
 ---------------
 
-A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
-For more information on service recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_service.md>`__.
-For more information on action recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_action.md>`__.
-For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback`.
+More articles:
+
+* :doc:`Understanding topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+* :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
+* :doc:`Understanding actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`
+* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+
+External resources:
+
+* `rosbag2 README <https://github.com/ros2/rosbag2>`__: thorough explanation of ``ros2 bag``.
+* `Service recording and playback design <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_service.md>`__: design details for services.
+* `Action recording and playback design <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_action.md>`__: design details for actions.
+
+FAQs
+----
+
+What does ``ros2 bag`` record?
+   It can record data from topics, services, and actions in your ROS system.
+   You choose which interfaces to record with options such as ``--topics``, ``--service``, and ``--action``.
+
+Where are recordings saved?
+   In a bag directory created in the working directory where you run ``ros2 bag record``.
+   Use ``-o`` to set a custom directory name.
+   Each bag directory contains metadata and the recorded data files.
+
+How do I inspect a recording before playing it back?
+   Run ``ros2 bag info <bag_name>``.
+   The output lists duration, message counts, and which topics, services, and actions were recorded.
+
+How do I play back service or action data?
+   For services, use ``ros2 bag play --publish-service-requests <bag_file_name>``.
+   For actions, use ``ros2 bag play --send-actions-as-client <bag_file_name>``.
+   Topic playback uses ``ros2 bag play <bag_name>``.
