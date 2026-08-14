@@ -43,13 +43,22 @@ ROSDISTRO_CACHE_TEMPLATE = (
 # Curated core packages mapped to a sandbox area chain (most specific first).
 # The first value is what the package lists actually match on.
 AREA_MAP = {
-    # nodes
+    # nodes (more than 7 so the sandbox can exercise the Show N more control)
     'rclcpp': 'nodes, framework',
     'rclpy': 'nodes, framework',
     'rclcpp_components': 'nodes, framework',
     'rclcpp_lifecycle': 'nodes, framework',
     'rcl_lifecycle': 'nodes, framework',
     'composition': 'nodes, framework',
+    'libstatistics_collector': 'nodes, framework',
+    'rcl_logging_interface': 'nodes, framework',
+    'rcl_logging_spdlog': 'nodes, framework',
+    'rosgraph_msgs': 'nodes, framework',
+    'tracetools': 'nodes, framework',
+    'launch': 'nodes, framework',
+    'launch_ros': 'nodes, framework',
+    'lifecycle_msgs': 'nodes, framework',
+
     # parameters
     'rcl_yaml_param_parser': 'parameters, framework',
     'rcl_interfaces': 'parameters, framework',
