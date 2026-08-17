@@ -25,7 +25,6 @@ This article describes parameters and how they work.
 Summary
 -------
 
-Parameters in ROS 2 are associated with individual nodes.
 Parameters are used to configure nodes at startup (and during runtime), without changing the code.
 
 Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
@@ -90,12 +89,20 @@ All three of the callbacks are optional.
 #. Set parameter callback
 #. Post-set parameter callback
 
-The first is known as a "pre set parameter" callback, and can be set by calling ``add_pre_set_parameters_callback`` from the node API.
+The ROS 2 demos have an `example <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__ of all of these callbacks in use.
+
+Pre-set parameter callbacks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"Pre-set parameter" callbacks can be set by calling ``add_pre_set_parameters_callback`` from the node API.
 This callback is passed a list of the ``Parameter`` objects that are being changed, and returns nothing.
 When it is called, it can modify the ``Parameter`` list to change, add, or remove entries.
 As an example, if ``parameter2`` should change anytime that ``parameter1`` changes, that can be implemented with this callback.
 
-The second is known as a "set parameter" callback, and can be set by calling ``add_on_set_parameters_callback`` from the node API.
+Set parameter callbacks
+~~~~~~~~~~~~~~~~~~~~~~~
+
+"Set parameter" callbacks can be set by calling ``add_on_set_parameters_callback`` from the node API.
 The callback is passed a list of immutable ``Parameter`` objects, and returns an ``rcl_interfaces/msg/SetParametersResult``.
 The main purpose of this callback is to give the user the ability to inspect the upcoming change to the parameter and explicitly reject the change.
 
@@ -105,11 +112,13 @@ The main purpose of this callback is to give the user the ability to inspect the
    If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
    To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
 
-The third type of callback is known as an "post set parameter" callback, and can be set by calling ``add_post_set_parameters_callback`` from the node API.
+Post-set parameter callbacks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"Post set parameter" callbacks can be set by calling ``add_post_set_parameters_callback`` from the node API.
 The callback is passed a list of immutable ``Parameter`` objects, and returns nothing.
 The main purpose of this callback is to give the user the ability to react to changes from parameters that have successfully been accepted.
 
-The ROS 2 demos have an `example <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__ of all of these callbacks in use.
 
 Interacting with parameters
 ---------------------------
@@ -118,19 +127,36 @@ ROS 2 nodes can perform parameter operations through node APIs as described in :
 External processes can perform parameter operations via parameter services that are created by default when a node is instantiated.
 The services that are created by default are:
 
-* ``/node_name/describe_parameters``: Uses a service type of ``rcl_interfaces/srv/DescribeParameters``.
+* ``/node_name/describe_parameters``: 
+  Uses a service type of ``rcl_interfaces/srv/DescribeParameters``.
+
   Given a list of parameter names, returns a list of descriptors associated with the parameters.
-* ``/node_name/get_parameter_types``: Uses a service type of ``rcl_interfaces/srv/GetParameterTypes``.
+
+* ``/node_name/get_parameter_types``: 
+  Uses a service type of ``rcl_interfaces/srv/GetParameterTypes``.
+
   Given a list of parameter names, returns a list of parameter types associated with the parameters.
-* ``/node_name/get_parameters``: Uses a service type of ``rcl_interfaces/srv/GetParameters``.
+
+* ``/node_name/get_parameters``: 
+  Uses a service type of ``rcl_interfaces/srv/GetParameters``.
+
   Given a list of parameter names, returns a list of parameter values associated with the parameters.
-* ``/node_name/list_parameters``: Uses a service type of ``rcl_interfaces/srv/ListParameters``.
+
+* ``/node_name/list_parameters``: 
+  Uses a service type of ``rcl_interfaces/srv/ListParameters``.
+
   Given an optional list of parameter prefixes, returns a list of the available parameters with that prefix.
   If the prefixes are empty, returns all parameters.
-* ``/node_name/set_parameters``: Uses a service type of ``rcl_interfaces/srv/SetParameters``.
+
+* ``/node_name/set_parameters``: 
+  Uses a service type of ``rcl_interfaces/srv/SetParameters``.
+
   Given a list of parameter names and values, attempts to set the parameters on the node.
   Returns a list of results from trying to set each parameter; some of them may have succeeded and some may have failed.
-* ``/node_name/set_parameters_atomically``: Uses a service type of ``rcl_interfaces/srv/SetParametersAtomically``.
+
+* ``/node_name/set_parameters_atomically``: 
+  Uses a service type of ``rcl_interfaces/srv/SetParametersAtomically``.
+
   Given a list of parameter names and values, attempts to set the parameters on the node.
   Returns a single result from trying to set all parameters, so if one failed, all of them failed.
 
@@ -159,13 +185,6 @@ All client libraries provide APIs to get, set, and react to parameter changes wh
 Client library support includes:
  * **C++ (rclcpp)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
  * **Python (rclpy)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
-
-Migrating from ROS 1
---------------------
-
-The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
-
-The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
 
 Related content
 ---------------

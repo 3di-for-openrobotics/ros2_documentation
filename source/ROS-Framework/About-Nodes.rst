@@ -52,6 +52,9 @@ ROS is based on object-oriented programming principles.
 Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
 Nodes can provide configurable :doc:`parameters <About-Parameters>` to change behavior during run-time.
 
+Communication between nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 ROS nodes typically communicate through the following three types of interfaces:
 
 * Topics, for continuous data streams:

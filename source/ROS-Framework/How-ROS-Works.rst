@@ -5,8 +5,6 @@ How ROS works
    :maxdepth: 1
    :hidden:
 
-Coming Soon
-
 **[Area: Framework | Content-type: concept | Experience: beginner]**
 
 .. contents:: Table of Contents
@@ -19,17 +17,24 @@ The ROS graph refers to the network of ROS nodes.
 ROS Graph
 ---------
 
-The ROS graph is a network of ROS 2 elements processing data together at the same time.
-A full robotic system is comprised of many nodes working in concert.
+The ROS graph is a decentralised network of modular software elements, nodes, that process data concurrently.
+
+.. image:: nodes/Working-with-nodes/Understanding-ROS2-Nodes/images/Nodes-TopicandService.gif
+
+A full robotic system is comprised of many nodes working in concert and the ROS graph describes how they relate to each other.
+
+Elements of a ROS system
+------------------------
+
 In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
-It encompasses all executables and the connections between them if you were to map them all out and visualize them.
+Each node in ROS should be responsible for a single, modular purpose, such as controlling a motor or publishing sensor data.
+See: :doc:`About-Nodes`
 
-Each node in ROS should be responsible for a single, modular purpose, e.g. controlling the wheel motors or publishing the sensor data from a laser range-finder.
-Each node can send and receive data from other nodes via topics, services, actions, or parameters.
+Each node can then send and receive data from other nodes via topics, services, actions, or parameters.
+See: :doc:`Interfaces-Topics-Services-Actions` and :doc:`About-Client-Libraries`
 
-.. image:: nodes/images/Nodes-TopicandService.gif
-
-
+Communication between nodes is uses Data Distrtibution Service (DDS) middleware. 
+See: :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Middleware-Implementations`
 
 Related content
 ---------------
