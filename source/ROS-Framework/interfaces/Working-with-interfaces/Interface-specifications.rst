@@ -3,14 +3,7 @@
     Concepts/Basic/About-Interfaces
 
 Interface specifications
-==========
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   About-Tf2/About-Tf2
-   Working-with-interfaces
+========================
 
 .. contents:: Table of Contents
    :local:
@@ -18,7 +11,7 @@ Interface specifications
 Background
 ----------
 
-ROS applications typically communicate through interfaces of one of three types: :doc:`topics <About-Topics>`, :doc:`services <About-Services>`, or :doc:`actions <About-Actions>`.
+ROS applications typically communicate through interfaces of one of three types: :doc:`topics <../About-Topics>`, :doc:`services <../About-Services>`, or :doc:`actions <../About-Actions>`.
 ROS 2 uses a simplified description language, the interface definition language (IDL), to describe these interfaces.
 This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
 

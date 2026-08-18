@@ -13,10 +13,10 @@ Interfaces (topics, services, actions)
    :maxdepth: 1
    :hidden:
 
-   interfaces/About-Interfaces
    interfaces/About-Topics
    interfaces/About-Services
    interfaces/About-Actions
+   interfaces/Working-with-interfaces
 
 
 Interfaces in ROS define how nodes exchange data.
@@ -28,7 +28,7 @@ With this information, you'll be able to select the right interfaces for your pu
 Summary
 -------
 When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :doc:`Interfaces Overview <interfaces/About-Interfaces>`.
+The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Interface-specifications>`.
 This is written to provide the reader with guidelines about when to use each type of interface.
 
 ROS nodes typically communicate through the following three types of interfaces:
@@ -136,7 +136,7 @@ This interface type has the following main characteristics:
     Action server-->>Action client: Provides feedback (periodic)
     Action server-->>Action client: Sends a result
 
-    * Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
+* Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
 * The most important property of actions is that they can be preempted and preemption should always be implemented cleanly by action servers.
 * Actions can keep state for the lifetime of a goal, i.e. if executing two action goals in parallel on the same server, for each client a separate state instance can be kept since the goal is uniquely identified by its id.
 * Slow perception routines which take several seconds to terminate or initiating a lower-level control mode are good use cases for actions.
