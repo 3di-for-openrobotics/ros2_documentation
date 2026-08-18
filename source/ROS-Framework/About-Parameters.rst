@@ -26,7 +26,6 @@ Summary
 -------
 
 Parameters are used to configure nodes at startup (and during runtime), without changing the code.
-
 Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
 
 Each parameter consists of:
