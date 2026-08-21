@@ -40,6 +40,7 @@ Nodes
 -----
 A node is a unit of computation in a ROS graph.
 Each node is an independent processes that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
+See :doc:`How-ROS-Works`.
 
 Each node runs separately in its own runtime environment and uses a :doc:`client library <About-Client-Libraries>` to allow it to communicate with other nodes, even if other nodes are not written in the same language.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
