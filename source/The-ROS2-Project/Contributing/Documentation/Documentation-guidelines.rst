@@ -30,7 +30,7 @@ We recommend that you enable automatic white space highlighting and cleanup if y
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Table of contents
 -----------------
@@ -241,7 +241,7 @@ The ``:doc:`` directive is used to create in-text links to other pages.
 
 .. code-block:: rst
 
-   :doc:`Quality of Service <../Tutorials/Quality-of-Service>`
+   :doc:`Quality of Service <../../../ROS-Framework/interfaces/topics/Working-with-topics/Quality-of-Service>`
 
 Note that the relative path to the file is used.
 

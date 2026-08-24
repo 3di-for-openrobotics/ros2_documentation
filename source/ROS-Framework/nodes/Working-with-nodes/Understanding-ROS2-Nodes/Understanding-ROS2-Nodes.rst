@@ -21,8 +21,8 @@ Understanding nodes
 Background
 ----------
 
-Learn about the :doc:`ROS Graph <../../../../ROS-Framework/How-ROS-Works>`.
-Learn about :doc:`nodes <../../../../ROS-Framework/About-Nodes>`.
+Learn about the :doc:`ROS Graph <../../../How-ROS-Works>`.
+Learn about :doc:`nodes <../../../About-Nodes>`.
 
 Prerequisites
 -------------
