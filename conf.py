@@ -201,7 +201,7 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js']
+html_js_files = ['adopters.js', 'related_articles.js']
 
 # -- Options for HTMLHelp output ------------------------------------------
 
