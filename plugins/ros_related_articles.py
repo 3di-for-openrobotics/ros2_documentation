@@ -19,22 +19,29 @@ Matching rules
 - A page includes the ``.. ros-related-articles::`` directive and must declare
   ``area`` via ``.. meta::``. ``area`` may hold several values separated by
   commas, ordered so that the most specific value comes first (for example
-  ``nodes, framework``).
-- The first ``area`` value is the primary area of the page. Two articles are
-  treated as related only when their primary areas are equal. Because ``area``
-  values are ordered with the child before its parent, comparing the first
-  value pairs articles that share the same lowest-level area (for example both
-  under ``nodes``) and does not pull in articles that merely share a broader
-  parent such as ``framework``. So ``nodes, framework`` matches
-  ``nodes, framework``, but ``framework`` does not match ``nodes, framework``.
-- ``experience`` and any other metadata are not used for matching. ``area`` is
-  the only field that is required.
-- The page itself is excluded. Results are checked against any adjacent manual
-  list to remove duplicates, sorted by title, and limited to ``:max:``
-  (default 10).
+  ``debugging, introspection, tools, framework`` or ``nodes, framework``).
+- The first ``area`` value is the primary (lowest level) area of the page.
+  Related articles are those that include that primary value **anywhere** in
+  their own ``area`` list. Matching on the primary value avoids flooding the
+  list with every page that only shares a broader parent such as ``framework``.
+- Results are ordered by ``content-type`` (About, Process overview, Learning
+  path, How-to, Tutorial, Example, Reference), then by title. Pages without a
+  content type sort after known types.
+- When the current page's ``content-type`` is ``tutorial``, the directive emits
+  two lists: other tutorials first, then remaining related articles (tutorials
+  removed so they are not duplicated).
+- When the current page's ``content-type`` is ``navigation``, or the directive
+  option ``:layout: by-area`` is set, the directive emits one list per ``area``
+  value on the page (``Articles about <Value>:``), each listing articles that
+  contain that value anywhere in ``area``.
+- ``experience`` is not used for matching. ``area`` is required.
+- The page itself is excluded. Adjacent manual lists are merged with
+  duplicates removed. ``:max:`` limits each generated list (default: no cap).
+  When a list has more than 7 items, extras are collapsed behind a
+  ``Show N more articles`` control (same pattern as related packages).
 
 Build flow: all documents are indexed on ``env-updated``, then each directive
-is resolved into a static bullet list on ``doctree-resolved``. See the
+is resolved into static bullet lists on ``doctree-resolved``. See the
 community guide on the related directives for usage aimed at authors.
 [TODO: link once published]
 """
@@ -46,6 +53,26 @@ from typing import List, Set, TypedDict
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
+
+# Article order by content type.
+CONTENT_TYPE_ORDER = (
+    'about',
+    'process overview',
+    'process-overview',
+    'learning path',
+    'learning-path',
+    'how-to',
+    'howto',
+    'how to',
+    'tutorial',
+    'example',
+    'reference',
+)
+
+_CONTENT_TYPE_RANK = {name: index for index, name in enumerate(CONTENT_TYPE_ORDER)}
+
+# First N list items stay visible; the rest get a Show N more articles control.
+DEFAULT_RELATED_ARTICLES_VISIBLE_MAX = 10
 
 
 def _normalize_field_name(raw: str) -> str:
@@ -100,11 +127,20 @@ def _positive_int_option(argument: str) -> int:
     return value
 
 
+def _layout_option(argument: str) -> str:
+    """Parse ``:layout:`` (``default`` or ``by-area``)."""
+    value = (argument or 'default').strip().lower()
+    if value not in {'default', 'by-area'}:
+        raise ValueError('layout must be default or by-area')
+    return value
+
+
 class RelatedArticle(TypedDict):
     docname: str
     title: str
     area_tokens: List[str]
     experience: str
+    content_type: str
 
 
 def _normalized_value(raw: str) -> str:
@@ -113,18 +149,34 @@ def _normalized_value(raw: str) -> str:
 
 
 def _area_tokens(raw: str) -> List[str]:
-    """Split an ``area`` value into ordered, normalized tokens (most specific first).
-
-    Writers list ``area`` lowest-level-first per the taxonomy (e.g. ``nodes, framework``),
-    so the first token is the page's primary/most-specific area. Duplicates are dropped
-    while order is preserved.
-    """
+    """Split an ``area`` value into ordered, normalized tokens (most specific first)."""
     tokens: List[str] = []
     for part in raw.split(','):
         token = _normalized_value(part)
         if token and token not in tokens:
             tokens.append(token)
     return tokens
+
+
+def _content_type_rank(content_type: str) -> int:
+    """Return sort rank for a content type (unknown types sort last)."""
+    return _CONTENT_TYPE_RANK.get(content_type, len(CONTENT_TYPE_ORDER))
+
+
+def _sort_articles(matches: List[RelatedArticle]) -> List[RelatedArticle]:
+    """Order by content type (see CONTENT_TYPE_ORDER), then title."""
+    return sorted(
+        matches,
+        key=lambda item: (
+            _content_type_rank(item['content_type']),
+            item['title'].lower(),
+        ),
+    )
+
+
+def _title_case_area(token: str) -> str:
+    """Humanize an area token for a navigation heading."""
+    return token.replace('-', ' ').replace('_', ' ').title()
 
 
 def _previous_sibling(node: nodes.Node) -> nodes.Node | None:
@@ -221,11 +273,99 @@ def _manual_docnames_from_lists(
     return docnames
 
 
+def _read_page_meta(env, docname: str, doctree: nodes.document | None = None) -> dict:
+    """Return area, experience and content-type strings for *docname*."""
+    if doctree is None:
+        doctree = env.get_doctree(docname)
+    meta = env.metadata.get(docname, {})
+    area = (
+        _meta_content_from_docutils(doctree, 'area')
+        or _meta_get(meta, 'area')
+        or _field_value_from_doctree(doctree, 'area')
+        or ''
+    )
+    experience = (
+        _meta_content_from_docutils(doctree, 'experience')
+        or _meta_get(meta, 'experience')
+        or _field_value_from_doctree(doctree, 'experience')
+        or ''
+    )
+    content_type = (
+        _meta_content_from_docutils(doctree, 'content-type')
+        or _meta_content_from_docutils(doctree, 'content_type')
+        or _meta_get(meta, 'content-type', 'content_type')
+        or _field_value_from_doctree(doctree, 'content-type')
+        or _field_value_from_doctree(doctree, 'content_type')
+        or ''
+    )
+    return {
+        'area': area,
+        'experience': experience,
+        'content_type': _normalized_value(content_type),
+    }
+
+
+def _filter_by_area_containment(
+    index: List[RelatedArticle],
+    fromdocname: str,
+    want_area: str,
+    manual_docnames: Set[str],
+) -> List[RelatedArticle]:
+    """Articles that include *want_area* anywhere in their area tokens."""
+    want = _normalized_value(want_area)
+    if not want:
+        return []
+    matches = [
+        item for item in index
+        if item['docname'] != fromdocname
+        and item['docname'] not in manual_docnames
+        and want in item['area_tokens']
+    ]
+    return _sort_articles(matches)
+
+
+def _apply_max(matches: List[RelatedArticle], max_items: int | None) -> List[RelatedArticle]:
+    """Optionally truncate *matches*."""
+    if max_items is None or max_items < 1:
+        return matches
+    return matches[:max_items]
+
+
+def _heading_paragraph(text: str) -> nodes.paragraph:
+    """Return a strong-label paragraph used above a related list."""
+    para = nodes.paragraph()
+    para += nodes.strong(text=text)
+    return para
+
+
+def _new_article_list() -> nodes.bullet_list:
+    """Return an empty related-articles bullet list."""
+    return nodes.bullet_list(classes=['related-articles'])
+
+
+def _collapse_article_list(
+    bullet_list: nodes.bullet_list,
+    visible_max: int = DEFAULT_RELATED_ARTICLES_VISIBLE_MAX,
+) -> None:
+    """Hide list items beyond *visible_max* for the Show N more articles control.
+
+    Marks extras with ``related-articles__item--extra``; ``related_articles.js``
+    inserts the expand button and toggles visibility.
+    """
+    items = [child for child in bullet_list.children if isinstance(child, nodes.list_item)]
+    if len(items) <= visible_max:
+        return
+    for item in items[visible_max:]:
+        _ensure_class(item, 'related-articles__item--extra')
+
+
 def _resolve_related_articles_list(
     node: RosRelatedArticlesNode,
     matches: List[RelatedArticle],
     app,
     fromdocname: str,
+    *,
+    lead_nodes: List[nodes.Node] | None = None,
 ) -> None:
     """Replace *node* with generated links, merging adjacent manual bullet lists."""
     prev = _previous_sibling(node)
@@ -233,22 +373,43 @@ def _resolve_related_articles_list(
     prev_list = prev if isinstance(prev, nodes.bullet_list) else None
     next_list = next_sib if isinstance(next_sib, nodes.bullet_list) else None
 
+    replacement: List[nodes.Node] = list(lead_nodes or [])
+
     if prev_list is not None:
         target = prev_list
         _ensure_class(target, 'related-articles')
-    else:
-        target = nodes.bullet_list(classes=['related-articles'])
+        # Manual list stays where it is; generated items append to it.
+        _append_article_items(target, matches, app, fromdocname)
+        if next_list is not None:
+            _absorb_bullet_list(target, next_list)
+            next_list.replace_self([])
+        _collapse_article_list(target)
+        if replacement:
+            for extra in replacement:
+                if isinstance(extra, nodes.bullet_list):
+                    _collapse_article_list(extra)
+            # Insert extra sections after the merged manual+auto list.
+            parent = target.parent
+            if parent is not None:
+                idx = parent.children.index(target)
+                for offset, extra in enumerate(replacement):
+                    parent.insert(idx + 1 + offset, extra)
+        node.replace_self([])
+        return
 
+    target = _new_article_list()
     _append_article_items(target, matches, app, fromdocname)
-
     if next_list is not None:
         _absorb_bullet_list(target, next_list)
         next_list.replace_self([])
+    _collapse_article_list(target)
 
-    if prev_list is not None:
-        node.replace_self([])
-    else:
-        node.replace_self(target)
+    for extra in replacement:
+        if isinstance(extra, nodes.bullet_list):
+            _collapse_article_list(extra)
+
+    replacement.append(target)
+    node.replace_self(replacement)
 
 
 class RosRelatedArticlesNode(nodes.General, nodes.Element):
@@ -256,57 +417,42 @@ class RosRelatedArticlesNode(nodes.General, nodes.Element):
 
 
 class RosRelatedArticlesDirective(SphinxDirective):
-    """Emit a placeholder replaced by a bullet list of related article links.
+    """Emit a placeholder replaced by related article lists.
 
-    Write the section intro (e.g. ``Related articles:``) in the RST source
-    before this directive. Optional bullet items immediately before or after
-    the directive are merged into the same list as the generated links.
-    Auto-generated entries that duplicate a manual link target are omitted.
-
-    Matching uses the page's **primary area** — the first (most specific) value
-    of ``area`` — and lists other articles that have the same primary area (the
-    same first ``area`` value). Order ``area`` most specific first (e.g.
-    ``nodes, framework``). ``area`` is required; ``experience`` is optional and
-    not used for matching.
+    Matching uses the page's **primary area** (first ``area`` value). Other
+    articles are related when that value appears **anywhere** in their ``area``
+    list. Results are ordered by ``content-type``, then title.
 
     .. code-block:: rst
 
        .. meta::
           :area: nodes, framework
-
-    Uses page metadata values from ``.. meta::`` (see above).
+          :content-type: about
     """
 
     has_content = False
     required_arguments = 0
     optional_arguments = 0
-    option_spec = {'max': _positive_int_option}
+    option_spec = {
+        'max': _positive_int_option,
+        'layout': _layout_option,
+    }
 
     def run(self) -> List[nodes.Node]:
-        meta = self.env.metadata.get(self.env.docname, {})
-        area = (
-            _meta_content_from_docutils(self.state.document, 'area')
-            or _meta_get(meta, 'area')
-            or _field_value_from_doctree(self.state.document, 'area')
-            or ''
-        )
-        experience = (
-            _meta_content_from_docutils(self.state.document, 'experience')
-            or _meta_get(meta, 'experience')
-            or _field_value_from_doctree(self.state.document, 'experience')
-            or ''
-        )
-
-        if not area:
+        page = _read_page_meta(self.env, self.env.docname, self.state.document)
+        if not page['area']:
             raise self.error(
                 'ros-related-articles: define `area` with `.. meta::` '
                 '(recommended), or field list metadata.'
             )
 
         node = RosRelatedArticlesNode()
-        node['area'] = area
-        node['experience'] = experience
-        node['max'] = self.options.get('max', 10)
+        node['area'] = page['area']
+        node['experience'] = page['experience']
+        node['content_type'] = page['content_type']
+        node['layout'] = self.options.get('layout', 'default')
+        # None = uncapped (show the full related list).
+        node['max'] = self.options.get('max')
         return [node]
 
 
@@ -314,29 +460,17 @@ def _collect_article_index(env) -> List[RelatedArticle]:
     """Build an index of docs that declare ``area`` metadata (tokenized)."""
     records: List[RelatedArticle] = []
     for docname in sorted(env.found_docs):
-        doctree = env.get_doctree(docname)
-        meta = env.metadata.get(docname, {})
-        area = (
-            _meta_content_from_docutils(doctree, 'area')
-            or _meta_get(meta, 'area')
-            or _field_value_from_doctree(doctree, 'area')
-            or ''
-        )
-        experience = (
-            _meta_content_from_docutils(doctree, 'experience')
-            or _meta_get(meta, 'experience')
-            or _field_value_from_doctree(doctree, 'experience')
-            or ''
-        )
-        if not area:
+        page = _read_page_meta(env, docname)
+        if not page['area']:
             continue
         title_node = env.titles.get(docname)
         title = title_node.astext().strip() if title_node else docname
         records.append({
             'docname': docname,
             'title': title,
-            'area_tokens': _area_tokens(area),
-            'experience': _normalized_value(experience),
+            'area_tokens': _area_tokens(page['area']),
+            'experience': _normalized_value(page['experience']),
+            'content_type': page['content_type'],
         })
     return records
 
@@ -347,36 +481,107 @@ def build_related_articles_index(app, env) -> None:
 
 
 def resolve_related_articles(app, doctree, fromdocname) -> None:
-    """Replace placeholders with a static bullet list."""
+    """Replace placeholders with static related-article bullet list(s)."""
     index: List[RelatedArticle] = getattr(app.env, 'ros_related_articles_index', [])
     for node in list(doctree.traverse(RosRelatedArticlesNode)):
         area_tokens = _area_tokens(str(node.get('area', '')))
         primary_area = area_tokens[0] if area_tokens else ''
-        max_items = int(node.get('max', 10))
+        max_items = node.get('max')
+        layout = str(node.get('layout') or 'default')
+        page_content_type = _normalized_value(str(node.get('content_type') or ''))
 
-        matches = [
-            item for item in index
-            if item['docname'] != fromdocname
-            and primary_area
-            and item['area_tokens']
-            and item['area_tokens'][0] == primary_area
-        ]
         prev = _previous_sibling(node)
         next_sib = _next_sibling(node)
         prev_list = prev if isinstance(prev, nodes.bullet_list) else None
         next_list = next_sib if isinstance(next_sib, nodes.bullet_list) else None
-
         manual_docnames = _manual_docnames_from_lists(
             app, fromdocname, prev_list, next_list,
         )
-        if manual_docnames:
-            matches = [
-                item for item in matches
-                if item['docname'] not in manual_docnames
-            ]
 
-        matches.sort(key=lambda item: item['title'].lower())
-        matches = matches[:max_items]
+        # Navigation pages: one list per area value on this page.
+        if layout == 'by-area' or page_content_type == 'navigation':
+            pieces: List[nodes.Node] = []
+            for token in area_tokens:
+                group = _apply_max(
+                    _filter_by_area_containment(
+                        index, fromdocname, token, manual_docnames,
+                    ),
+                    max_items,
+                )
+                if not group:
+                    continue
+                pieces.append(
+                    _heading_paragraph(f'Articles about {_title_case_area(token)}:')
+                )
+                blist = _new_article_list()
+                _append_article_items(blist, group, app, fromdocname)
+                _collapse_article_list(blist)
+                pieces.append(blist)
+            if prev_list is not None and next_list is not None:
+                _absorb_bullet_list(prev_list, next_list)
+                next_list.replace_self([])
+            if not pieces:
+                node.replace_self([])
+                continue
+            # Keep any manual list; append generated sections after the directive.
+            if prev_list is not None:
+                parent = prev_list.parent
+                idx = parent.children.index(node) if parent is not None else -1
+                node.replace_self([])
+                if parent is not None and idx >= 0:
+                    for offset, extra in enumerate(pieces):
+                        parent.insert(idx + offset, extra)
+            else:
+                node.replace_self(pieces)
+            continue
+
+        matches = _filter_by_area_containment(
+            index, fromdocname, primary_area, manual_docnames,
+        )
+
+        # Tutorials: "More tutorials" then "More related articles".
+        if page_content_type == 'tutorial':
+            tutorials = [
+                item for item in matches if item['content_type'] == 'tutorial'
+            ]
+            others = [
+                item for item in matches if item['content_type'] != 'tutorial'
+            ]
+            tutorials = _apply_max(tutorials, max_items)
+            others = _apply_max(others, max_items)
+            lead: List[nodes.Node] = []
+            if tutorials:
+                # First block uses the normal merge path for manuals + tutorials.
+                if others:
+                    extra_heading = _heading_paragraph('More related articles:')
+                    extra_list = _new_article_list()
+                    _append_article_items(extra_list, others, app, fromdocname)
+                    _collapse_article_list(extra_list)
+                    lead = [extra_heading, extra_list]
+                # Prepend a tutorials label when we are about to emit the main list.
+                # Manual list (if any) remains unlabeled "essential reading".
+                if prev_list is None:
+                    # No manuals: label the tutorials list explicitly.
+                    wrapper: List[nodes.Node] = [
+                        _heading_paragraph('More tutorials:'),
+                    ]
+                    main = _new_article_list()
+                    _append_article_items(main, tutorials, app, fromdocname)
+                    wrapper.append(main)
+                    if next_list is not None:
+                        _absorb_bullet_list(main, next_list)
+                        next_list.replace_self([])
+                    _collapse_article_list(main)
+                    wrapper.extend(lead)
+                    node.replace_self(wrapper)
+                    continue
+                _resolve_related_articles_list(
+                    node, tutorials, app, fromdocname, lead_nodes=lead,
+                )
+                continue
+            matches = others
+
+        matches = _apply_max(matches, max_items)
 
         if not matches:
             if prev_list is not None and next_list is not None:
