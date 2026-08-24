@@ -10,7 +10,7 @@ Recording and playing back data - how-to
 
 ``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
 This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
-Worked examples cover the same pattern for topics, services, and actions.
+Hands-on exercises walk you through the same pattern for topics, services, and actions.
 
 **Area: Framework | Content-type: how-to | Experience: beginner**
 
@@ -27,8 +27,8 @@ Recordings are stored as bag directories that you can share or reuse to reproduc
 Prerequisites
 -------------
 
-#. :doc:`Install ROS <../../../../Get-Started/Installation>` if needed.
-#. Familiarity with :doc:`nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and :doc:`actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+#. :doc:`Install ROS <../../../../Get-Started/Installation>`.
+#. Get familiar with :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 
 Steps
 -----
@@ -40,7 +40,7 @@ Steps
 Record, inspect, and play back topics
 -------------------------------------
 
-1 Run the turtlesim nodes
+1 Run the Turtlesim nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The topic examples use the ``turtlesim`` package.
@@ -88,6 +88,7 @@ Create a directory to store recordings:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 bag`` can record data from messages published to topics.
+
 To list active topics, open a new terminal and run:
 
 .. code-block:: console
@@ -112,10 +113,11 @@ To see the data that ``/turtle1/cmd_vel`` is publishing, run:
 
     $ ros2 topic echo /turtle1/cmd_vel
 
-Nothing appears at first because the teleop node is not publishing yet.
-Return to the terminal where you ran the teleop node and select it so it is active.
+Nothing appears at first because the teleoperation node is not publishing yet.
+Return to the terminal where you ran the teleoperation node and select it so it is active.
 Use the arrow keys to move the turtle around.
-Data appears in the terminal running ``ros2 topic echo``:
+
+In the terminal running ``ros2 topic echo``, data appears:
 
 .. code-block:: console
 
@@ -133,30 +135,38 @@ Data appears in the terminal running ``ros2 topic echo``:
 3 Record topics
 ^^^^^^^^^^^^^^^
 
+Use ``ros2 bag record`` to save topic data into a bag directory.
+You can record one topic, several topics at once, or split a long recording across multiple files.
+
 3.1 Record a single topic
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To record the data published to a topic use the command syntax:
+Open a new terminal and move into the ``bag_files`` directory you created earlier.
+``ros2 bag record`` creates the bag directory in the working directory where you run the command.
+
+To record data published to a topic, use the following syntax:
 
 .. code-block:: console
 
     $ ros2 bag record --topics <topic_name>
 
-Before running this command, open a new terminal and move into the ``bag_files`` directory you created earlier.
-The bag directory is created in the working directory where you run ``ros2 bag record``.
-
-Run the command:
+For example, record ``/turtle1/cmd_vel``:
 
 .. code-block:: console
 
     $ ros2 bag record --topics /turtle1/cmd_vel
+
+You should see output similar to:
+
+.. code-block:: console
+
     [INFO] [rosbag2_storage]: Opened database 'rosbag2_2019_10_11-05_18_45'.
     [INFO] [rosbag2_transport]: Listening for topics...
     [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
     [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
 Now ``ros2 bag`` is recording the data published on the ``/turtle1/cmd_vel`` topic.
-Return to the teleop terminal and move the turtle around again.
+Return to the teleoperation terminal and move the turtle around again.
 The exact path does not matter, but try to make a recognisable pattern to verify playback later.
 
 .. image:: images/record.png
@@ -169,21 +179,26 @@ This directory will contain a ``metadata.yaml`` along with the bag file in the r
 3.2 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also record multiple topics, as well as change the name of the bag directory ``ros2 bag`` saves to.
+You can also record multiple topics, as well as change the name of the bag directory to which ``ros2 bag`` saves the recording.
 
 Run the following command:
 
 .. code-block:: console
 
   $ ros2 bag record -o subset --topics /turtle1/cmd_vel /turtle1/pose
+
+You should see output similar to:
+
+.. code-block:: console
+
   [INFO] [rosbag2_storage]: Opened database 'subset'.
   [INFO] [rosbag2_transport]: Listening for topics...
   [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
   [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/pose'
   [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
-The ``-o`` option allows you to choose a unique name for your bag directory.
-The following string, in this case ``subset``, is the bag directory name.
+The ``-o`` option sets the bag directory name.
+In this example, the directory is named ``subset``.
 
 To record more than one topic at a time, simply list each topic separated by a space after ``--topics``.
 In this case, the command output above confirms that both topics are being recorded.
@@ -198,15 +213,21 @@ You can move the turtle around and press :kbd:`Ctrl-C` when you're finished.
 3.3 Split recording into multiple files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also split your recording into multiple files, based on either recording duration or file size.
-``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to a new file, or ``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
-This prevents large and unwieldy file sizes, and protects against losing all data if the recording operation becomes corrupted at some point.
+You can split your recording into multiple files, based on either recording duration or file size.
+``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to a new file.
+``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
+Splitting the recording keeps individual files smaller and limits how much data you lose if a recording becomes corrupted.
 
-Run the following for at least 15 seconds, allowing for three 5-second bag files to be written:
+Run this command and keep it recording for at least 15 seconds so that three 5-second bag files are written:
 
 .. code-block:: console
 
     $ ros2 bag record -o subset_split -d 5 --topics /turtle1/cmd_vel /turtle1/pose
+
+You should see output similar to:
+
+.. code-block:: console
+
     [INFO] [rosbag2_recorder]: Press SPACE for pausing/resuming
     [INFO] [rosbag2_recorder]: Listening for topics...
     [INFO] [rosbag2_recorder]: Event publisher thread: Starting
@@ -218,13 +239,13 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
 
-Press :kbd:`Ctrl-C` when you're finished.
-You should find a ``subset_split`` directory with these files inside: ``0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, ``1_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, and so on.
+Press :kbd:`Ctrl-C` when you are finished.
+You should find a ``subset_split`` directory containing numbered files such as ``0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap`` and ``1_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``.
 
 .. note::
 
    Split file naming changed in Lyrical.
-   On earlier distributions the files may instead look like ``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
+   On earlier distributions, the files may instead look like ``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
 
 4 Inspect a topic recording
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -235,11 +256,16 @@ To see details about a recording, run:
 
     $ ros2 bag info <bag_name>
 
-Running this command on the ``subset`` bag recording will return a list of information:
+Running this command on the ``subset`` bag recording returns information similar to:
 
 .. code-block:: console
 
     $ ros2 bag info subset
+
+The terminal returns:
+
+.. code-block:: console
+
     Files:             subset_0.mcap
     Bag size:          228.5 KiB
     Storage id:        mcap
@@ -255,22 +281,31 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Actions:           0
     Action information:
 
-Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, and it will only show information for that portion of the recording; in this case, the first 5 seconds.
+You can also run ``ros2 bag info`` on an individual file, such as ``subset_split/0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``.
+That shows information for only that portion of the recording.
+In this example, that is the first 5 seconds.
 
 5 Play back topic data
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Use ``ros2 bag play`` to replay a recorded bag, or several bags together with synced timing.
+
 5.1 Play a single bag
 ~~~~~~~~~~~~~~~~~~~~~
 
-Before replaying the bag, enter :kbd:`Ctrl-C` in the terminal where the teleop node is running.
-Make sure the Turtlesim window is visible so you can see playback.
+Before replaying the bag, enter :kbd:`Ctrl-C` in the terminal where the teleoperation node is running.
+Make sure the Turtlesim window is visible so that you can see playback.
 
 Run:
 
 .. code-block:: console
 
     $ ros2 bag play subset
+
+You should see output similar to:
+
+.. code-block:: console
+
     [INFO] [rosbag2_player]: Set rate to 1
     [INFO] [rosbag2_player]: Adding keyboard callbacks.
     [INFO] [rosbag2_player]: Press SPACE for Pause/Resume
@@ -394,6 +429,11 @@ To verify that service introspection is enabled, run:
 .. code-block:: console
 
   $ ros2 service echo --flow-style /add_two_ints
+
+You should see output similar to:
+
+.. code-block:: console
+
   info:
     event_type: REQUEST_SENT
     stamp:
@@ -410,8 +450,8 @@ You should see the service communication.
 3 Record services
 ^^^^^^^^^^^^^^^^^
 
-To record service data, the following options are supported.
-Service data can be recorded with topics at the same time.
+Use ``--services`` to record named services, or ``--all-services`` to record every available service.
+You can record services and topics at the same time.
 
 To record specific services:
 
@@ -430,6 +470,11 @@ Run the command:
 .. code-block:: console
 
   $ ros2 bag record --services /add_two_ints
+
+You should see output similar to:
+
+.. code-block:: console
+
   [INFO] [1713995957.643573503] [rosbag2_recorder]: Press SPACE for pausing/resuming
   [INFO] [1713995957.662067587] [rosbag2_recorder]: Event publisher thread: Starting
   [INFO] [1713995957.662067614] [rosbag2_recorder]: Listening for topics...
@@ -450,6 +495,11 @@ To see details about a recording, run:
 .. code-block:: console
 
   $ ros2 bag info <bag_file_name>
+
+You should see output similar to:
+
+.. code-block:: console
+
   Files:             rosbag2_2024_04_24-14_59_17_0.mcap
   Bag size:          15.1 KiB
   Storage id:        mcap
@@ -463,7 +513,7 @@ To see details about a recording, run:
   Service information: Service: /add_two_ints | Type: example_interfaces/srv/AddTwoInts | Event Count: 78 | Serialization Format: cdr
 
 5 Play back service data
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where ``introspection_client`` is running.
 When ``introspection_client`` stops, ``introspection_service`` also stops printing results because there are no incoming requests.
@@ -475,6 +525,11 @@ Run:
 .. code-block:: console
 
   $ ros2 bag play --publish-service-requests <bag_file_name>
+
+You should see output similar to:
+
+.. code-block:: console
+
   [INFO] [1713997477.870856190] [rosbag2_player]: Set rate to 1
   [INFO] [1713997477.877417477] [rosbag2_player]: Adding keyboard callbacks.
   [INFO] [1713997477.877442404] [rosbag2_player]: Press SPACE for Pause/Resume
@@ -570,6 +625,11 @@ To verify that action introspection is enabled, run:
 .. code-block:: console
 
   $ ros2 action echo --flow-style /fibonacci
+
+You should see output similar to:
+
+.. code-block:: console
+
   interface: GOAL_SERVICE
   info:
     event_type: REQUEST_SENT
@@ -586,8 +646,8 @@ To verify that action introspection is enabled, run:
 3 Record actions
 ^^^^^^^^^^^^^^^^
 
-To record action data, the following options are supported.
-Action data can be recorded with topics and services at the same time.
+Use ``--actions`` to record named actions, or ``--all-actions`` to record every available action.
+You can record actions together with topics and services.
 
 To record specific actions:
 
@@ -606,6 +666,11 @@ Run the command:
 .. code-block:: console
 
   $ ros2 bag record --actions /fibonacci
+
+You should see output similar to:
+
+.. code-block:: console
+
   [INFO] [1744953225.214114862] [rosbag2_recorder]: Press SPACE for pausing/resuming
   [INFO] [1744953225.218369761] [rosbag2_recorder]: Listening for topics...
   [INFO] [1744953225.218386223] [rosbag2_recorder]: Event publisher thread: Starting
@@ -631,6 +696,11 @@ To see details about a recording, run:
 .. code-block:: console
 
   $ ros2 bag info <bag_file_name>
+
+You should see output similar to:
+
+.. code-block:: console
+
   Files:             rosbag2_2025_04_17-22_20_40_0.mcap
   Bag size:          20.7 KiB
   Storage id:        mcap
@@ -664,6 +734,11 @@ Run:
 .. code-block:: console
 
   $ ros2 bag play --send-actions-as-client <bag_file_name>
+
+You should see output similar to:
+
+.. code-block:: console
+
   [INFO] [1744953720.691068674] [rosbag2_player]: Set rate to 1
   [INFO] [1744953720.702365209] [rosbag2_player]: Adding keyboard callbacks.
   [INFO] [1744953720.702409447] [rosbag2_player]: Press SPACE for Pause/Resume
