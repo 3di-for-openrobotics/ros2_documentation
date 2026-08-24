@@ -4,6 +4,7 @@
 
 .. meta::
    :area: services, interfaces, framework
+   :content-type: about
 
 Services
 ========

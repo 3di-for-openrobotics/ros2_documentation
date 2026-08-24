@@ -5,6 +5,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: about
 
 Composition
 ===========

@@ -7,6 +7,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: learning path
 
 Using time (C++)
 ================

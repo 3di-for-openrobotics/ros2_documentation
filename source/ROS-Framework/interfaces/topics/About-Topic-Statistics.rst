@@ -6,6 +6,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: about
 
 Topic statistics
 ================

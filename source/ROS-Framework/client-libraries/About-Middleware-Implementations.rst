@@ -5,6 +5,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: about
 
 ROS 2 middleware implementations
 ================================

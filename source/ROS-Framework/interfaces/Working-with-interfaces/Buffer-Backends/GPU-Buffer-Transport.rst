@@ -1,5 +1,6 @@
 .. meta::
    :area: interfaces, framework
+   :content-type: how-to
 
 GPU buffer transport with ``rosidl::Buffer``
 ============================================

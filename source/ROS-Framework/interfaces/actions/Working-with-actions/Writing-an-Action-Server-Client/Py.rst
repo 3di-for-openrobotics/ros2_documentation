@@ -7,6 +7,7 @@
 
 .. meta::
    :area: actions, interfaces, framework
+   :content-type: how-to
 
 Writing an action server and client (Python)
 ============================================

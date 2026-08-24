@@ -4,6 +4,7 @@
 
 .. meta::
    :area: parameters, framework
+   :content-type: how-to
 
 Using the ``ros2 param`` command-line tool
 ==========================================

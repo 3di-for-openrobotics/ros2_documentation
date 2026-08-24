@@ -8,6 +8,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Implementing custom interfaces
 ==============================

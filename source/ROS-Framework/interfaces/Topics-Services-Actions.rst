@@ -1,5 +1,6 @@
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: how-to
 
 Topics vs Services vs Actions
 =============================

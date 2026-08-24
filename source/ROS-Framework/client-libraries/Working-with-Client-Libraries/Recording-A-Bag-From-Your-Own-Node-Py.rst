@@ -7,6 +7,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Recording a bag from a node (Python)
 ====================================

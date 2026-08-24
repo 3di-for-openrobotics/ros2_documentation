@@ -1,5 +1,6 @@
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Writing an async node with asyncio (Python)
 ===========================================

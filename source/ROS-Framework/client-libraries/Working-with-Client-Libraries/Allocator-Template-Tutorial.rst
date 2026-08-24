@@ -6,6 +6,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: tutorial
 
 Implementing a custom memory allocator
 ======================================

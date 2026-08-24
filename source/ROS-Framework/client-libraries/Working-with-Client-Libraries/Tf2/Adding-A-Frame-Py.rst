@@ -5,6 +5,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Adding a frame (Python)
 =======================

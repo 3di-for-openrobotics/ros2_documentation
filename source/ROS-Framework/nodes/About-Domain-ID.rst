@@ -5,6 +5,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: about
 
 The ROS_DOMAIN_ID
 =================

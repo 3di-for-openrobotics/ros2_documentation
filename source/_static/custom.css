@@ -2,13 +2,34 @@
     max-width: 64rem;
 }
 
-.related-packages__list {
-    margin-bottom: 0.25rem;
+/* Beat RTD theme ``.rst-content section ul { margin-bottom: 24px }``. */
+.rst-content section ul.related-packages__list,
+.rst-content .section ul.related-packages__list,
+.rst-content section ul.related-articles,
+.rst-content .section ul.related-articles {
+    margin-bottom: 0.15rem;
 }
 
-.related-packages__expand {
+.related-packages__heading {
+    margin: 1.25rem 0 0.5rem;
+}
+
+.related-packages__scope-heading {
+    margin: 0.9rem 0 0.35rem;
+}
+
+li.related-articles__item--extra {
+    display: none;
+}
+
+ul.related-articles.is-expanded > li.related-articles__item--extra {
+    display: list-item;
+}
+
+.related-packages__expand,
+.related-articles__expand {
     display: block;
-    margin: 0.15rem 0 0.75rem 1.5rem;
+    margin: 0 0 0.5rem 1.5rem;
     padding: 0;
     border: 0;
     background: none;
@@ -19,6 +40,8 @@
 }
 
 .related-packages__expand:hover,
-.related-packages__expand:focus {
+.related-packages__expand:focus,
+.related-articles__expand:hover,
+.related-articles__expand:focus {
     text-decoration: underline;
 }

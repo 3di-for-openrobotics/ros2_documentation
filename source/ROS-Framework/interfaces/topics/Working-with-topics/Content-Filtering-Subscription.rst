@@ -5,6 +5,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: how-to
 
 Creating a content filtering subscription
 =========================================

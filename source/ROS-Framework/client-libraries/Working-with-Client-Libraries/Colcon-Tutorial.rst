@@ -8,6 +8,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: tutorial
 
 Using ``colcon`` to build packages
 ==================================

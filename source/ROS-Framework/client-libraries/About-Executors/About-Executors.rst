@@ -5,6 +5,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: about
 
 Executors
 =========

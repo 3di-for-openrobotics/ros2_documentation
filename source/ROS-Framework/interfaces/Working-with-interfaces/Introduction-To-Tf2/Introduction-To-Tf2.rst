@@ -7,6 +7,7 @@
 
 .. meta::
    :area: interfaces, framework
+   :content-type: how-to
 
 Introducing ``tf2``
 ===================

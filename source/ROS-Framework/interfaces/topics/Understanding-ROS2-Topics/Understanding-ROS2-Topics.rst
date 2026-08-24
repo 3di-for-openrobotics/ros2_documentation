@@ -7,6 +7,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: tutorial
 
 Understanding topics
 ====================

@@ -6,6 +6,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: how-to
 
 Using quality-of-service settings for lossy networks
 ====================================================

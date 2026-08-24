@@ -7,6 +7,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: tutorial
 
 Understanding nodes
 ===================

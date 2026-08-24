@@ -2,6 +2,7 @@
 
 .. meta::
    :area: interfaces, framework
+   :content-type: how-to
 
 Working with interfaces
 =======================

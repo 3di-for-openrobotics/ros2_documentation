@@ -8,6 +8,7 @@
 
 .. meta::
    :area: services, interfaces, framework
+   :content-type: how-to
 
 Synchronous vs. asynchronous service clients
 ============================================

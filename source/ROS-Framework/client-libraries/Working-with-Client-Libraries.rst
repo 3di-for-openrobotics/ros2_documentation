@@ -1,5 +1,6 @@
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Working with Client libraries
 =============================

@@ -6,6 +6,7 @@
 
 .. meta::
    :area: parameters, framework
+   :content-type: about
 
 Parameters
 ==========

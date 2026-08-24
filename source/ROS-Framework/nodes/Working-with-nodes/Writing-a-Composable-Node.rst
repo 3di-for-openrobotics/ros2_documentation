@@ -4,6 +4,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Writing a Composable Node (C++)
 ===============================

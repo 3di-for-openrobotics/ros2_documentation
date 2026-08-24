@@ -7,6 +7,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Using parameters in a class (Python)
 ====================================

@@ -7,6 +7,7 @@
 
 .. meta::
    :area: services, interfaces, framework
+   :content-type: tutorial
 
 Understanding services
 ======================

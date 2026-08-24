@@ -6,6 +6,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: tutorial
 
 Topic Keys Subscription Filtering Tutorial
 ==========================================

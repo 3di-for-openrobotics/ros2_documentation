@@ -2,6 +2,7 @@
 
 .. meta::
    :area: actions, interfaces, framework
+   :content-type: how-to
 
 Working with actions
 ====================

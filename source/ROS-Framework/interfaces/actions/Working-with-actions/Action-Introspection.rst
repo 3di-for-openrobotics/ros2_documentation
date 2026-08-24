@@ -4,6 +4,7 @@
 
 .. meta::
    :area: actions, interfaces, framework
+   :content-type: how-to
 
 Configure action introspection
 ==============================

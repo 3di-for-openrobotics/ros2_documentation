@@ -7,6 +7,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Creating custom msg and srv files
 =================================

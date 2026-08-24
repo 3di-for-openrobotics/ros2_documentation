@@ -6,6 +6,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Setting up efficient intra-process communication
 ================================================

@@ -2,6 +2,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Working with nodes
 ==================

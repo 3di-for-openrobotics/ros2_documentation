@@ -4,6 +4,7 @@
 
 .. meta::
    :area: parameters, framework
+   :content-type: how-to
 
 Monitoring for parameter changes (Python)
 =========================================

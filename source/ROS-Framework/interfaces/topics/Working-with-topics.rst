@@ -2,6 +2,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: how-to
 
 Working with topics
 ===================

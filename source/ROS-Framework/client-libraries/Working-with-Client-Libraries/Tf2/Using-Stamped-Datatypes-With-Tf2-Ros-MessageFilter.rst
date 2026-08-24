@@ -7,6 +7,7 @@
 
 .. meta::
    :area: client-libraries, framework
+   :content-type: how-to
 
 Using stamped datatypes with ``tf2_ros::MessageFilter``
 =======================================================

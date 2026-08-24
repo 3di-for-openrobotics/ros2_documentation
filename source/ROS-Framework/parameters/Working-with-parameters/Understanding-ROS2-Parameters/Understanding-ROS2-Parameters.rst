@@ -7,6 +7,7 @@
 
 .. meta::
    :area: parameters, framework
+   :content-type: tutorial
 
 Understanding parameters
 ========================

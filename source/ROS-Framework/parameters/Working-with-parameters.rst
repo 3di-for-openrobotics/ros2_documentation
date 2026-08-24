@@ -2,6 +2,7 @@
 
 .. meta::
    :area: parameters, framework
+   :content-type: how-to
 
 Working with parameters
 =======================

@@ -4,6 +4,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Using the Node Interfaces Template Class (C++)
 ==============================================

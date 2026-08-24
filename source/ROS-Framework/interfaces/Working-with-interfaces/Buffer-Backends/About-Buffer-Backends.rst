@@ -1,5 +1,6 @@
 .. meta::
    :area: interfaces, framework
+   :content-type: about
 
 About ``rosidl::Buffer`` backends
 =================================

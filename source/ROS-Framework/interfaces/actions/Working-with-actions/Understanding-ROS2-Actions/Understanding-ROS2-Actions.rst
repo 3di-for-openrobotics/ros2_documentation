@@ -7,6 +7,7 @@
 
 .. meta::
    :area: actions, interfaces, framework
+   :content-type: tutorial
 
 Understanding actions
 =====================

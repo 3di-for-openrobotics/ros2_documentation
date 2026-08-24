@@ -4,6 +4,7 @@
 
 .. meta::
    :area: topics, interfaces, framework
+   :content-type: how-to
 
 Wait for acknowledgment
 =======================

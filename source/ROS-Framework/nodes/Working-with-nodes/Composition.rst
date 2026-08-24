@@ -6,6 +6,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Composing multiple nodes in a single process
 ============================================

@@ -207,6 +207,7 @@ html_js_files = [
     ('vendor/js-yaml.min.js', {'defer': ''}),
     'adopters.js',
     'related_packages.js',
+    'related_articles.js',
 ]
 
 # Endpoint the browser tries first for the freshest rosdistro cache data, served

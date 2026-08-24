@@ -7,6 +7,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: how-to
 
 Using ``rqt_console`` to view logs
 ==================================

@@ -6,6 +6,7 @@
 
 .. meta::
    :area: nodes, framework
+   :content-type: about
 
 Logging and logger configuration
 ================================
