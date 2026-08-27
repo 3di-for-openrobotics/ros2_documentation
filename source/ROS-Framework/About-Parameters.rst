@@ -28,20 +28,13 @@ Summary
 
 Parameters are configuration values stored by each node in the ROS graph.
 Parameters are used to configure nodes at startup and during runtime, without changing the code.
-Parameters are addressed by node name, node namespace (optional), parameter name, and parameter namespace.
-
-Each parameter consists of:
-
-* a key: a string
-* a value: one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
-* a descriptor: opetional and empty by default, but can contain parameter descriptions, value ranges, type information, and additional constraints.
 
 The ``ros2 param`` command and client libraries allow you to set and change parameters.
 The following client libraries are core to ROS:
 
- * **rclcpp**: C++ client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
+ * `rclcpp <https://index.ros.org/p/rclcpp/>`_: The C++ client library for ROS. 
  
- * **rclpy**: Python client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
+ * `rclpy <https://index.ros.org/p/rclpy/>`_: The Python client library for ROS.
 
 Parameters
 ----------
@@ -57,22 +50,32 @@ Each parameter consists of:
 
 * a value: The value must be one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 
-* a descriptor: Descriptors are optional and allow you to specify a text description of the parameter and its constraints, such making it read-only, specifying a range, etc. By default, all descriptors are empty but can contain parameter descriptions, value ranges, type information, and additional constraints.
+* a descriptor: Descriptors are optional and allow you to specify a text description of the parameter and its constraints, such making it read-only, specifying a range, and so on. 
+  By default, all descriptors are empty. 
+  They can be set to contain parameter descriptions, value ranges, type information, and additional constraints.
 
 
-Setting and changing parameters
--------------------------------
+Set and change parameters
+-------------------------
 
-Initial parameter values can be set when initialising the node through the ROS launch facility.
-Initial parameter values can be set when running the node either through individual command-line arguments, or through YAML files.
+ROS enables multiple methods to set and change parameters:
 
-The ``ros2 param`` command is the primary way to interact with parameters for nodes that are already running.
-Also, all client libraries provide APIs to get, set, and react to parameter changes while a node is running.
-The following client libraries are core to ROS:
+* Set parameter values at startup
+   Initial parameter values can be set when initializing the node through the ROS launch facility.
+   For more information about launch, see :doc:`../Developer-Tools/Launch/Launch-Main`
 
- * **rclcpp**: C++ client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
+* Set values at runtime
+   * Command line (CLI)
+      Initial parameter values can be set when running the node either through individual command-line arguments, or through YAML files.
+      The ``ros2 param`` command is the primary way to interact with parameters for nodes that are already running.
+
+   * Client libraries and APIs
+      All client libraries provide APIs to get, set, and react to parameter changes while a node is running. 
+      The following client libraries are core to ROS:
+
+      * **rclcpp**: C++ client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
  
- * **rclpy**: Python client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
+      * **rclpy**: Python client library for ROS. To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
 
 To learn more about working with parameters, see :doc:`parameters/Working-with-parameters`. For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
 
@@ -87,6 +90,7 @@ A ROS node can optionally register three different types of callbacks to be info
 
 Related content
 ---------------
+* :doc:`parameters/Working-with-parameters`
 * :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
 * :doc:`../Developer-Tools/Launch/Launch-Main`
 

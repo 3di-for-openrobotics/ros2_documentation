@@ -5,8 +5,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Working with parameters
-=======================
+Working with parameters - how-to
+================================
 
 .. toctree::
   :maxdepth: 2
@@ -18,13 +18,19 @@ Working with parameters
   Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
 
 Parameters are configuration values stored by each node in the ROS graph.
-This article describes how to interact with ROS parameters. 
+This article describes how to interact with ROS parameters.
+After reading this article you will be able to understand how to use parameters. 
 
 **[Area: Parameters, Framework | Content-type: Concept | Experience: Beginner]**
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Background
+----------
+
+Before you get started, familiarise yourself with what parameters are in ROS: :doc:`../About-Parameters`
 
 Declaring parameters
 --------------------
@@ -36,8 +42,8 @@ See :doc:`../client-libraries/Working-with-Client-Libraries/Using-Parameters-In-
 For some types of nodes, not all of the parameters will be known ahead of time.
 In these cases, the node can be instantiated with ``allow_undeclared_parameters`` set to ``true``, which will allow parameters to be get and set on the node even if they haven't been declared.
 
-Parameter types
----------------
+Setting parameter types
+-----------------------
 
 Supported parameter types are:
   * ``bool`` 
@@ -89,8 +95,8 @@ The parameter services that are created by default are:
 Setting initial parameter values when launching nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Initial parameter values can be set when running the node through the ROS launch facility.
-See :doc:`this document <../../Developer-Tools/Launch/Using-ROS2-Launch-For-Large-Projects>` for information on how to specify parameters via launch.
+Startup parameter values can be set when running the node through the ROS launch facility.
+For information on how to specify parameters via launch, see :doc:`../../Developer-Tools/Launch/Using-ROS2-Launch-For-Large-Projects`.
 
 Setting initial parameter values when running a node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,17 +114,14 @@ For details on how to use ``ros2 param``, see :doc:`Working-with-parameters/Usin
 In addition to the command-line interface, parameters can also be manipulated programmatically at runtime using ROS client libraries.
 All client libraries provide APIs to get, set, and react to parameter changes while a node is running.
 
-Parameter callbacks
--------------------
+Setting parameter callbacks
+---------------------------
 
-A ROS 2 node can register three different types of callbacks to be informed when changes are happening to parameters.
-All three of the callbacks are optional.
+A ROS 2 node can register callbacks to be informed when changes are happening to parameters.
 
-* *Pre-set parameter* callback 
-* *Set parameter* callback
-* *Post-set parameter* callback
+To learn more about parameter callbacks, see :doc:`../About-Parameters`.
 
-For a demo of these callbacks in use, see `set_parameters_callback.cpp <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__.
+For a demo example of these callbacks in use, see `set_parameters_callback.cpp <https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__.
 
 Pre-set parameter callbacks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,24 +129,22 @@ Pre-set parameter callbacks
 *Pre-set parameter* callbacks can be set by calling ``add_pre_set_parameters_callback`` from the node API.
 This callback is passed a list of the ``Parameter`` objects that are being changed, and returns nothing.
 When it is called, it can modify the ``Parameter`` list to change, add, or remove entries.
-As an example, if ``parameter2`` should change anytime that ``parameter1`` changes, that can be implemented with this callback.
+For example, if ``parameter2`` should change anytime that ``parameter1`` changes, that can be implemented with this callback.
 
 Set parameter callbacks
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 *Set parameter* callbacks can be set by calling ``add_on_set_parameters_callback`` from the node API.
 The callback is passed a list of immutable ``Parameter`` objects, and returns an ``rcl_interfaces/msg/SetParametersResult``.
-The main purpose of this callback is to give the user the ability to inspect the upcoming change to the parameter and explicitly reject the change.
 
 .. note::
    It is important that *set parameter* callbacks have no side-effects.
-   Since multiple *set parameter* callbacks can be chained, there is no way for an individual callback to know if a later callback will reject the update.
-   If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
-   To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
+   Because multiple *set parameter* callbacks can be chained, there is no way for an individual callback to know if a later callback will reject the update.
+   If the individual callback were to make changes to the class it is in, for example, it could get out-of-sync with the actual parameter.
+   To get a callback *after* a parameter has been successfully changed, use a post-set parameter callback.
 
 Post-set parameter callbacks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 *Post-set parameter* callbacks can be set by calling ``add_post_set_parameters_callback`` from the node API.
 The callback is passed a list of immutable ``Parameter`` objects, and returns nothing.
-The main purpose of this callback is to give the user the ability to react to changes from parameters that have successfully been accepted.
