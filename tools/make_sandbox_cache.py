@@ -6,8 +6,8 @@ packages lists expect:
 
   * ``<area>`` aligned with sandbox article areas (containment match on the
     page's primary area value)
-  * ``<related_scope>core</related_scope>`` or ``community`` for the Core /
-    Community-contributed split
+  * ``<related_scope>core</related_scope>`` or ``federation`` for the Core /
+    Community split
 
 Typical flow (from the repository root)::
 
@@ -51,13 +51,13 @@ PACKAGE_META = {
     'launch': ('nodes, framework', 'core'),
     'launch_ros': ('nodes, framework', 'core'),
     'lifecycle_msgs': ('nodes, framework', 'core'),
-    # Community — nodes (showcase the second list; names must exist in the cache)
-    'moveit_ros_planning_interface': ('nodes, framework', 'community'),
-    'joint_state_publisher': ('nodes, framework', 'community'),
-    'robot_state_publisher': ('nodes, framework', 'community'),
-    'xacro': ('nodes, framework', 'community'),
-    'demo_nodes_cpp': ('nodes, framework', 'community'),
-    'demo_nodes_py': ('nodes, framework', 'community'),
+    # Federation — nodes (showcase the second list; names must exist in the cache)
+    'moveit_ros_planning_interface': ('nodes, framework', 'federation'),
+    'joint_state_publisher': ('nodes, framework', 'federation'),
+    'robot_state_publisher': ('nodes, framework', 'federation'),
+    'xacro': ('nodes, framework', 'federation'),
+    'demo_nodes_cpp': ('nodes, framework', 'federation'),
+    'demo_nodes_py': ('nodes, framework', 'federation'),
     # parameters
     'rcl_yaml_param_parser': ('parameters, framework', 'core'),
     'rcl_interfaces': ('parameters, framework', 'core'),
