@@ -3,8 +3,8 @@
     Developer-Guide
     Contributing/Developer-Guide
 
-ROS 2 developer guide
-=====================
+Contributing to code
+====================
 
 .. toctree::
    :maxdepth: 2

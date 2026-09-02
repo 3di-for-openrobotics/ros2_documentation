@@ -3,8 +3,8 @@
     Quality-Guide
     Contributing/Quality-Guide
 
-Quality guide: ensuring code quality
-====================================
+Code quality guidelines
+=======================
 
 .. contents:: Table of Contents
    :depth: 2
