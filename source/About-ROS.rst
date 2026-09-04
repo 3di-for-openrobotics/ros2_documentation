@@ -1,6 +1,7 @@
 .. redirect-from::
 
-    About-ROS
+    Get-Started/About-ROS
+    Get-Started/About-ROS/About-ROS
 
 .. _AboutROS:
 

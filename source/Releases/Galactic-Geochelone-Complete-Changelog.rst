@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Galactic-Geochelone-Complete-Changelog
+    Get-Started/Releases/Galactic-Geochelone-Complete-Changelog
 
 Galactic Geochelone changelog
 =============================
