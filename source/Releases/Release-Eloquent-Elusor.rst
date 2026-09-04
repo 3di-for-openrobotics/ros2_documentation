@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Eloquent-Elusor
+    Get-Started/Releases/Release-Eloquent-Elusor
 
 Eloquent Elusor (``eloquent``)
 ==============================

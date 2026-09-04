@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Rolling-Ridley
+    Get-Started/Releases/Release-Rolling-Ridley
 
 Rolling Ridley (``rolling``)
 ============================

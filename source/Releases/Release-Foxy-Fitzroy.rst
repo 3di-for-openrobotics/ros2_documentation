@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Foxy-Fitzroy
+    Get-Started/Releases/Release-Foxy-Fitzroy
 
 Foxy Fitzroy (``foxy``)
 =======================

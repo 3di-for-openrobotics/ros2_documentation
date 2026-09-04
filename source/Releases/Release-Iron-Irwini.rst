@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Iron-Irwini
+    Get-Started/Releases/Release-Iron-Irwini
 
 .. _iron-release:
 
