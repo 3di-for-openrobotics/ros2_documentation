@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Dashing-Diademata
+    Get-Started/Releases/Release-Dashing-Diademata
 
 Dashing Diademata (``dashing``)
 ===============================

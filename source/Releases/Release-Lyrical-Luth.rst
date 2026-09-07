@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Lyrical-Luth
+    Get-Started/Releases/Release-Lyrical-Luth
 
 .. _latest-release:
 

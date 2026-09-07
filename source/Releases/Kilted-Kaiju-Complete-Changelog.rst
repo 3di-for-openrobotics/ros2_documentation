@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Kilted-Kaiju-Complete-Changelog
+    Get-Started/Releases/Kilted-Kaiju-Complete-Changelog
 
 ROS 2 Kilted Kaiju Complete Changelog
 =====================================

@@ -130,11 +130,11 @@ This interface type has the following main characteristics:
 .. mermaid::
 
    sequenceDiagram
-    participant Action client
-    participant Action server
-    Client->>Action Server: Sends a goal
-    Action server-->>Action client: Provides feedback (periodic)
-    Action server-->>Action client: Sends a result
+    participant c as Action client
+    participant s as Action server
+    c->>s: Sends a goal
+    s-->>c: Provides feedback (periodic)
+    s-->>c: Sends a result
 
 * Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
 * The most important property of actions is that they can be preempted and preemption should always be implemented cleanly by action servers.

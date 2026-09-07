@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases
+    Get-Started/Releases
 
 .. _Releases:
 

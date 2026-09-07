@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Jazzy-Jalisco
+    Get-Started/Releases/Release-Jazzy-Jalisco
 
 .. _jazzy-release:
 

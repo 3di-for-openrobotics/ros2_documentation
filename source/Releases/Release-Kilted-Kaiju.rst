@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Releases/Release-Kilted-Kaiju
+    Get-Started/Releases/Release-Kilted-Kaiju
 
 .. _kilted-release:
 
