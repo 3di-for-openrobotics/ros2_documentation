@@ -32,6 +32,7 @@ Summary
 
 Client libraries are the APIs that allow users to implement their ROS code.
 Client libraries expose users to the core elements of ROS including nodes and interfaces.
+Nodes written using different client libraries are able to share messages with each other.
 
 The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both client libraries which build on the fuctionality in the ROS Client Library (``rcl``).
 
@@ -40,8 +41,8 @@ Client libraries
 
 Client libraries are maintained in a variety of programming languages so that users can write ROS code in the language that is best-suited for their application.
 For example, you might prefer to write visualization tools in Python because it makes prototyping iterations faster, while for parts of your system that are concerned with efficiency, the nodes might be better implemented in C++.
-
-Nodes written using different client libraries are able to share messages with each other because all client libraries implement code generators that provide users with the capability to interact with ROS 2 interface files in the respective language.
+All client libraries implement code generators which give users the capability to interact with ROS interface files in a number of supported languages.
+These interface files allow nodes written using different client libraries to share messages with each other. 
 
 In addition to the language-specific communication tools, client libraries expose to users the core functionality of ROS.
 For example, the following functionality can typically be accessed through a client library:
@@ -52,7 +53,6 @@ For example, the following functionality can typically be accessed through a cli
 * Console logging
 * Threading model
 * Intra-process communication
-
 
 ROS Client Library (``rcl``)
 -----------------------------
@@ -71,12 +71,10 @@ Furthermore, having the common core means that maintaining multiple client libra
 The API documentation for ``rcl`` can be found `here <{package_link(rcl)}>`__.
 
 Language-specific functionality
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Client library concepts that require language-specific features/properties are not implemented in the RCL but instead are implemented in each client library.
 For example, threading models used by "spin" functions will have implementations that are specific to the language of the client library.
-
-
 
 Related content
 ---------------
