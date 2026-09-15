@@ -9,6 +9,7 @@ Contributing to code
 .. toctree::
    :maxdepth: 2
 
+   Contributing-to-code/Source-Control-Best-Practices
    Contributing-to-code/Build-Farms
    Contributing-to-code/Code-Style-Language-Versions
    Contributing-to-code/Quality-Guide
