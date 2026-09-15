@@ -71,7 +71,6 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
-
 * Should be used for continuous data streams (sensor data, robot state, ...)
 * Are for continuous data flow.
   Data might be published and subscribed at any time independent of any senders/receivers.
@@ -120,7 +119,6 @@ This interface type has the following main characteristics:
     Service client->>Service server: Request
     Service server-->>Service client: Response
 
-
 * Should be used for remote procedure calls that terminate quickly, e.g. for querying the state of a node or doing a quick calculation such as IK.
   They should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur and they should never change or depend on state to avoid unwanted side effects for other nodes.
 
@@ -151,7 +149,6 @@ This interface type has the following main characteristics:
 * More complex non-blocking background processing.
   Used for longer tasks like execution of robot actions.
   Semantically for real-world actions.
-
 
 Key differences between ROS interfaces
 --------------------------------------
