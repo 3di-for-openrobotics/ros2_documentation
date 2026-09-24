@@ -8,7 +8,7 @@ Sphinx extension that generates related-article lists from page metadata, so a p
 
 Information for documentation authors adding a related-articles list to an `.rst` page.
 
-The `.. ros-related-articles::` directive is replaced **during the Sphinx build** with one or more bullet lists of links to other pages in this documentation set. The links are ordinary HTML in the built page — nothing is fetched when a reader opens it. The only JavaScript involved is the control that expands a long list.
+The `.. ros-related-articles::` directive is replaced **during the Sphinx build** with one or more bullet lists of links to other pages in this documentation set. The links are ordinary HTML in the built page — nothing is fetched when a reader opens it. JavaScript promotes the author-written intro to a heading and expands a long list.
 
 ### What the directive does
 
@@ -44,6 +44,8 @@ Related articles:
 
 .. ros-related-articles::
 ```
+
+Write the `Related articles:` intro yourself in the source. At page load it is promoted to an `h3` and the trailing colon is removed, so it becomes a real heading in the page structure rather than a stray paragraph.
 
 `area` holds one or more comma-separated values ordered **most specific first**, for example `nodes, framework` or `debugging, introspection, tools, framework`.
 
@@ -114,7 +116,7 @@ From an author's perspective:
 
 1. **No directive on the page** — Nothing related-articles runs for that page.
 2. **Directive present, `area` missing** — The build fails with `ros-related-articles: define 'area' with '.. meta::'`.
-3. **Directive present, matches found** — The placeholder is replaced with one or more static bullet lists of titles linking to the matching pages.
+3. **Directive present, matches found** — The placeholder is replaced with one or more static bullet lists of titles linking to the matching pages. The intro becomes an `h3`.
 4. **Directive present, no matches, no hand-written list** — The placeholder is removed. Nothing is rendered.
 5. **Directive present, no matches, hand-written list present** — The placeholder is removed and the author's list is left as written.
 6. **A generated list has more than 10 items** — Extra items are marked in the HTML; the expand control is attached in the browser.
@@ -124,7 +126,7 @@ From an author's perspective:
 | Situation | What the reader sees |
 |-----------|----------------------|
 | No directive | Nothing |
-| Matches found | One or more related-article lists |
+| Matches found | `Related articles` heading, then one or more related-article lists |
 | Warning-free empty match set | Nothing (or only the author's hand-written list) |
 | Missing `area` | **Build fails** |
 
@@ -150,7 +152,7 @@ Information for maintainers and developers working on or extending the related-a
 |------|---------|
 | [`ros_related_articles.py`](ros_related_articles.py) | Sphinx extension: directive, index build, and doctree resolution |
 | [`../source/_static/related_articles.js`](../source/_static/related_articles.js) | Expand/collapse control for long lists |
-| [`../source/_static/custom.css`](../source/_static/custom.css) | Styling for the lists and the expand button |
+| [`../source/_static/custom.css`](../source/_static/custom.css) | Styling for the heading, lists and the expand button |
 | [`../conf.py`](../conf.py) | Registers the extension in `extensions` and the script in `html_js_files` |
 
 ### Code modules
@@ -178,7 +180,7 @@ Building the index once on `env-updated` rather than per directive is what keeps
 
 #### `related_articles.js`
 
-Read-only against the built HTML. It finds every `ul.related-articles`, counts `li.related-articles__item--extra`, and inserts a **Show N more articles** button. It sets `hidden` on the extras itself rather than relying only on the stylesheet, so a page still behaves correctly if `custom.css` fails to load. It is idempotent: it will not attach a second button to a list that already has one.
+Read-only against the built HTML. It finds every `ul.related-articles`, promotes an adjacent `Related articles:` paragraph to `h3` (stripping the colon), counts `li.related-articles__item--extra`, and inserts a **Show N more articles** button. It sets `hidden` on the extras itself rather than relying only on the stylesheet, so a page still behaves correctly if `custom.css` fails to load. It is idempotent: it will not attach a second button to a list that already has one, and it will not rewrite an intro that is already a heading.
 
 ### Extending
 
@@ -202,6 +204,7 @@ Read-only against the built HTML. It finds every `ul.related-articles`, counts `
 
 | Hook | Where it comes from |
 |------|---------------------|
+| `.related-articles__heading` | The promoted `h3` |
 | `ul.related-articles` | Every generated or merged list |
 | `li.related-articles__item--extra` | Items past the visible cap; hidden by CSS and by `hidden` in JS |
 | `ul.related-articles.is-expanded` | Added while the list is expanded |
