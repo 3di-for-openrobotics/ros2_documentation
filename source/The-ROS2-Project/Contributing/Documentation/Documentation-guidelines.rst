@@ -450,30 +450,60 @@ To best support information retrieval by both humans and machines, each article 
    * - About
      - Explanation of tools or capability areas, or of a technical concept.
      - Explaining capability and technical concepts.
-     - :doc:`About ROS <../../../About-ROS>`, :doc:`Debugging <../../../Developer-Tools/About-Debugging>`, :doc:`Interfaces (topics, services, actions)<../../../ROS-Framework/Interfaces-Topics-Services-Actions>`
+     - :doc:`About ROS <../../../About-ROS>`
+
+       :doc:`Debugging <../../../Developer-Tools/About-Debugging>`
+
+       :doc:`Interfaces (topics, services, actions)<../../../ROS-Framework/Interfaces-Topics-Services-Actions>`
    * - Learning path
-     - Define learning path (curated syllabus based on other articles in the site or in other sites). Links to other articles for the detail of each learning step.
-     - Use for defining a list of reading and learning activities or a particular functionality area or stage in learning. Suitable for all levels of experience but more likely to be used by beginners.
+     - Define learning path (curated syllabus based on other articles in the site or in other sites).
+
+       Links to other articles for the detail of each learning step.
+     - Use for defining a list of reading and learning activities or a particular functionality area or stage in learning.
+
+       Suitable for all levels of experience but more likely to be used by beginners.
      - :doc:`First steps with ROS <../../../First-Steps>`
    * - Process overview
      - Define overall steps in a complex process to help understand the process and find detailed guidance for each step (links to separate articles).
      - Use for setting out guidance for complex processes. Useful for all levels of experience.
      - :doc:`Debugging <../../../Developer-Tools/Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems>`
    * - How-to
-     - Procedure for how to do something. Not tied to a particular scenario or use case, though may advise on how to handle it within the detail of the steps.
-     - Describe steps and options for a task but without tying explanations to a specific target goal. Best suited to explaining what to do and where to do it rather than exactly how to do it and why to do it that way.
-     - :doc:`Implementing custom interfaces - how-to <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface>`, :doc:`Installing on Ubuntu - how-to <../../../Get-Started/Installation/Ubuntu-Install-Debs>`
+     - Procedure for how to do something.
+
+       Not tied to a particular scenario or use case, though may advise on how to handle it within the detail of the steps.
+     - Describe steps and options for a task but without tying explanations to a specific target goal.
+
+       Best suited to explaining what to do and where to do it rather than exactly how to do it and why to do it that way.
+     - :doc:`Implementing custom interfaces - how-to <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface>`
+
+       :doc:`Installing on Ubuntu - how-to <../../../Get-Started/Installation/Ubuntu-Install-Debs>`
    * - Tutorial
      - Detailed actions for achieving a particular scenario or use case, including an explanation of what is going on within each step, or why to do it.
-     - Best suited to explaining exactly how to do something and why to do it that way. Good for complete beginners but also useful for more expert users, particularly for explaining how and why to follow best practice (experts may be more likely to follow the detail of substeps rather than the full tutorial). High effort to create and maintain. Before making a tutorial, consider if a How-to or Example type article might do the job.
+     - Best suited to explaining exactly how to do something and why to do it that way.
+
+       Good for complete beginners but also useful for more expert users, particularly for explaining how and why to follow best practice (experts may be more likely to follow the detail of substeps rather than the full tutorial).
+
+       High effort to create and maintain.
+
+       Before making a tutorial, consider if a How-to or Example type article might do the job.
      - :doc:`Learning about topics - tutorial <../../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
    * - Example
      - Simple article to make a demo example available to search and browse (detail is mainly in the example code in a separate location).
-     - Suited to helping people find a demo example that they can use to understand and adapt for their needs. Expects a set if commented code in a separate location. If you want to provide step by step instructions for implementing and adapting the example, a tutorial is probably better.
+     - Suited to helping people find a demo example that they can use to understand and adapt for their needs.
+
+       Expects a set if commented code in a separate location.
+
+       If you want to provide step by step instructions for implementing and adapting the example, a tutorial is probably better.
      - :doc:`Managing node lifecycles - example <../../../ROS-Framework/nodes/Working-with-nodes/Managed-Nodes>`
    * - Reference
-     - List and explain the detail of specifications. These will mostly be separate API docs but even for these it may be useful to have an article to help with findability.
-     - Suitable for listing any reference information. The article normally shouldn't include instructional or conceptual information. The main reference docs for OR will be API docs for packages (delivered as part of packages docs).
+     - List and explain the detail of specifications.
+
+       These will mostly be separate API docs but even for these it may be useful to have an article to help with findability.
+     - Suitable for listing any reference information.
+
+       The article normally shouldn't include instructional or conceptual information.
+
+       The main reference docs will be API docs for packages.
      - tbc
 
 Related content
