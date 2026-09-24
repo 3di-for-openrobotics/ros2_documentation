@@ -35,7 +35,7 @@ The guidance in this section will help you to make sure your ROS documentation i
 Metadata
 ^^^^^^^^
 
-Metadata directives are used to provide information about the content of an article, such as its context and purpose, and related packages or articles. 
+Metadata directives are used to provide information about the content of an article, such as its context and purpose, and related packages or articles.
 Adding metadata to an article also improves search engine optimization (SEO) and web indexing.
 
 The following metadata directives are used in ROS articles:
@@ -51,7 +51,7 @@ The following metadata directives are used in ROS articles:
 
 The following ``.. meta::`` directives should be added to each article.
 
-* ``:contentType:``: The type of content in the article. 
+* ``:contentType:``: The type of content in the article.
 This value helps structure search results and allows readers to filter content to find the information they need.
 
 One of the following values is expected:
@@ -67,7 +67,7 @@ One of the following values is expected:
 
 For more information on content types, see :ref:`Content types <ContentTypes>`.
 
-* ``:experience:``: The level of experience required to understand the article. 
+* ``:experience:``: The level of experience required to understand the article.
 
 At least one of the following values is expected:
 
@@ -77,7 +77,7 @@ At least one of the following values is expected:
 
 * ``:area:``: The area of ROS documentation the article belongs to and it's position in the documentation hierarchy.
   For example, an ``:area:`` of ``community``, ``contributing`` indicates the article belongs to the ``community`` section, and within that, the ``contributing`` subsection.
-  In this case, ``community`` is the primary value, which is used for building lists of related articles and packages. 
+  In this case, ``community`` is the primary value, which is used for building lists of related articles and packages.
   All articles must have a value for ``:area:``.
 
   One of the following ``:area:`` and corresponding subsection values is expected:
@@ -174,8 +174,8 @@ It helps readers to understand the structure of the documentation sections and n
 The ``.. contents::`` directive is used for generating the table of contents for a particular article by parsing all headings in the article.
 The table of contents shows readers the structural overview of the content and helps them easily navigate it.
 
-The ``.. contents::`` directive defines the maximum depth of sections displayed in the article's table of contents. 
-The recommended value is ``:depth: 2`` to ensure only an section and subsection headings are displayed. 
+The ``.. contents::`` directive defines the maximum depth of sections displayed in the article's table of contents.
+The recommended value is ``:depth: 2`` to ensure only an section and subsection headings are displayed.
 This is particularly important for large articles with many nested sections, for example, :doc:`Quality Guide <../Quality-Guide>`.
 
 .. code-block:: rst
@@ -256,7 +256,8 @@ Code blocks: ``bash`` vs. ``console``
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
 Choosing the right one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
-The following section provides an explanation of each one. You can skip to the end of this section for a list of use-cases and corresponding examples.
+The following section provides an explanation of each one.
+You can skip to the end of this section for a list of use-cases and corresponding examples.
 
 ``bash`` is meant for scripts, for example, for bash commands from a script file.
 Example result:
@@ -466,7 +467,9 @@ To best support information retrieval by both humans and machines, each article 
      - :doc:`First steps with ROS <../../../First-Steps>`
    * - Process overview
      - Define overall steps in a complex process to help understand the process and find detailed guidance for each step (links to separate articles).
-     - Use for setting out guidance for complex processes. Useful for all levels of experience.
+     - Use for setting out guidance for complex processes.
+
+       Useful for all levels of experience.
      - :doc:`Debugging <../../../Developer-Tools/Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems>`
    * - How-to
      - Procedure for how to do something.
