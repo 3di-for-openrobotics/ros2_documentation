@@ -10,7 +10,8 @@
     margin-bottom: 0.15rem;
 }
 
-.related-packages__heading {
+.related-packages__heading,
+.related-articles__heading {
     margin: 1.25rem 0 0.5rem;
 }
 

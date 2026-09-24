@@ -1,11 +1,50 @@
 /**
- * Expand/collapse for build-time ``ul.related-articles`` lists.
+ * Promote the author-written ``Related articles:`` intro and expand long
+ * build-time ``ul.related-articles`` lists.
  *
  * Items beyond the visible cap are marked ``related-articles__item--extra`` by
- * the Sphinx plugin. This script inserts a ``Show N more articles`` control.
+ * the Sphinx plugin. This script turns the intro paragraph into an ``h3`` and
+ * inserts a ``Show N more articles`` control.
  */
 (function () {
   'use strict';
+
+  /**
+   * Strip a trailing colon used in author-written intro labels.
+   *
+   * @param {string} text
+   * @returns {string}
+   */
+  function stripTrailingColon(text) {
+    return String(text || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/:+\s*$/, '');
+  }
+
+  /**
+   * Promote the author-written ``Related articles:`` paragraph to ``<h3>``.
+   * Skips an optional adjacent manual ``<ul>`` between the intro and the list.
+   *
+   * @param {HTMLUListElement} listEl
+   */
+  function promoteRelatedArticlesIntro(listEl) {
+    var node = listEl.previousElementSibling;
+    var h3;
+    while (node && node.tagName === 'UL') {
+      node = node.previousElementSibling;
+    }
+    if (!node || node.tagName !== 'P') {
+      return;
+    }
+    if (stripTrailingColon(node.textContent).toLowerCase() !== 'related articles') {
+      return;
+    }
+    h3 = document.createElement('h3');
+    h3.className = 'related-articles__heading';
+    h3.textContent = 'Related articles';
+    node.parentNode.replaceChild(h3, node);
+  }
 
   /**
    * @param {HTMLUListElement} listEl
@@ -71,6 +110,7 @@
     var lists = document.querySelectorAll('ul.related-articles');
     var i;
     for (i = 0; i < lists.length; i += 1) {
+      promoteRelatedArticlesIntro(lists[i]);
       attachExpandControl(lists[i]);
     }
   }
