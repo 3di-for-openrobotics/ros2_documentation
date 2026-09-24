@@ -1,7 +1,7 @@
 .. meta::
    :contentType: reference
    :experience: beginner, intermediate, expert
-   :area: ROS-community
+   :area: community, contributing
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
@@ -30,6 +30,8 @@ When creating content for the ROS documentation, write in reStructuredText (RST)
 Formatting
 ----------
 
+The guidance in this section will help you to make sure your ROS documentation is properly formatted.
+
 Metadata
 ^^^^^^^^
 
@@ -38,18 +40,20 @@ Adding metadata to an article also improves search engine optimization (SEO) and
 
 The following metadata directives are used in ROS articles:
 
-* ``:meta:``: Used for search filtering and for building lists of related packages or articles.
+* ``.. meta::``: Used for search filtering and for building lists of related packages or articles.
 
-* ``:showmeta:``: Used to display an article's metadata for readers to see.
+* ``.. showmeta::``: Used to display an article's metadata for readers to see.
 
-* ``:shortdesc:``: Used to provide the context and purpose of an article.
+* ``.. short-description:``: Used to provide the context and purpose of an article.
 
-``:meta:``
-~~~~~~~~~~
+``.. meta::``
+~~~~~~~~~~~~~
 
-The following meta directives should be added to each article.
+The following ``.. meta::`` directives should be added to each article.
 
-* ``:contentType:``: The type of content in the article. One of the following values is expected:
+* ``:contentType:``: The type of content in the article. This value helps structure search results and allows readers to filter content to find the information they need.
+
+One of the following values is expected:
 
    * about
    * how-to
@@ -62,7 +66,9 @@ The following meta directives should be added to each article.
 
 For more information on content types, see :ref:`Content types <ContentTypes>`.
 
-* ``:experience:``: The level of experience required to understand the article. At least one of the following values is expected:
+* ``:experience:``: The level of experience required to understand the article. 
+
+At least one of the following values is expected:
 
    * beginner
    * intermediate
@@ -71,6 +77,8 @@ For more information on content types, see :ref:`Content types <ContentTypes>`.
 * ``:area:``: The area of ROS documentation the article belongs to and it's position in the documentation hierarchy.
   For example, an ``:area:`` of ``community``, ``contributing`` indicates the article belongs to the ``community`` section, and within that, the ``contributing`` subsection.
   In this case, ``community`` is the primary value, which is used for building lists of related articles and packages. 
+  All articles must have a value for ``:area:``.
+
   One of the following ``:area:`` and corresponding subsection values is expected:
 
  * community
@@ -101,12 +109,32 @@ For more information on content types, see :ref:`Content types <ContentTypes>`.
    * navigation
    * perception
 
-``:shortdesc:``
-~~~~~~~~~~~~~~~
+``.. showmeta::``
+~~~~~~~~~~~~~~~~~
 
-The short description directive explains in two or three sentences what an article is about. 
-The number of sentences depends on the ``:contentType:`` directive added to the article. 
-For example, an ``about`` article should have a short description of two sentences, while a ``tutorial`` article should have a short description of three sentences, with the third sentence providing the expected outcome.
+The ``.. showmeta::`` directive renders the specified metadata at the top of a published article.
+
+The following ``.. showmeta::`` block should be included in each article:
+
+.. code-block:: rst
+
+   .. showmeta::
+      :order: area, contentType, experience
+      :labels: area=Area, contentType=Content type, experience=Level
+
+``.. short-description::``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``.. short-description::`` directive explains in two or three sentences what an article is about.
+Use the following structure to create a short description, making sure your sentences answer each of the questions:
+
+* Sentence 1 - Context: Why would a user be interested in this reading the article?
+
+* Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
+
+* Sentence 3 - Outcome: What will the user be able to do after reading the article or following the guidance?
+
+For ``about`` type articles, the third sentence is optional.
 
 Related packages or articles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
