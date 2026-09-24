@@ -51,7 +51,8 @@ The following metadata directives are used in ROS articles:
 
 The following ``.. meta::`` directives should be added to each article.
 
-* ``:contentType:``: The type of content in the article. This value helps structure search results and allows readers to filter content to find the information they need.
+* ``:contentType:``: The type of content in the article. 
+This value helps structure search results and allows readers to filter content to find the information they need.
 
 One of the following values is expected:
 
@@ -371,7 +372,7 @@ Note that the relative path to the file is used.
 
 The ``:ref:`` directive is used for linking to a specific target, for example, a heading, image, or code section, either in the same article, or in another article.
 
-To create an targeted link, place a definition directly above the target you want to link to. 
+To create an targeted link, place a definition directly above the target you want to link to.
 In the example below, the target is defined as ``_talker-listener`` one line before the ``Try some examples`` heading.
 
 .. code-block:: rst
