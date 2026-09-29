@@ -11,8 +11,8 @@ Documentation guidelines
 ========================
 
 .. short-description::
-   The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
-   This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
+   Consistent documentation helps contributors create ROS articles that are easy to review, maintain, and navigate.
+   This article describes the RST formatting conventions, metadata, directives, content types, and other guidelines used when creating ROS documentation.
 
 .. showmeta::
    :order: area, contentType, experience
@@ -32,55 +32,45 @@ Formatting
 
 The guidance in this section will help you to make sure your ROS documentation is properly formatted.
 
-Metadata
-^^^^^^^^
+General formatting guidelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Metadata directives are used to provide information about the content of an article, such as its context and purpose, and related packages or articles.
+The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
+This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+When formatting your ``reStructuredText`` file make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.
+Also, be mindful of the use of white space in your file!
+The ROS documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
+
+You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
+
+This article relates to contributing to the ROS documentation site.
+For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+
+Metadata and related directives
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Article metadata provides information about the content of an article, such as its context and purpose, and related packages or articles.
 Adding metadata to an article also improves search engine optimization (SEO) and web indexing.
+ROS articles also include related directives to manage visible page metadata and article summaries.
 
-The following metadata directives are used in ROS articles:
+Every ROS article must include specific metadata and supporting directives to ensure the documentation builds correctly and renders properly.
 
-* ``.. meta::``: Used for search filtering and for building lists of related packages or articles.
+Required metadata
+~~~~~~~~~~~~~~~~~
+Each ROS article must include the ``.. meta::`` directive, and within that, the ``:area:`` field.
 
-* ``.. showmeta::``: Used to display an article's metadata for readers to see.
+``:area:`` indicates the area of ROS documentation the article belongs to and it's position in the documentation hierarchy.
+This is essential for enabling search filtering and for building lists of related packages or articles.
 
-* ``.. short-description:``: Used to provide the context and purpose of an article.
+For example, ``:area:``: ``contributing``, ``community`` indicates the article belongs to the ``contributing`` subsection, which is inside ``community`` area.
+In this case, ``community`` is the primary value, which used for building lists of related articles and packages.
 
-``.. meta::``
-~~~~~~~~~~~~~
+.. note::
 
-The following ``.. meta::`` directives should be added to each article.
+   If the ``:area:`` field is missing or present but the value is empty or incorrect, the documentation build will fail.
 
-* ``:contentType:``: The type of content in the article.
-This value helps structure search results and allows readers to filter content to find the information they need.
-
-One of the following values is expected:
-
-   * about
-   * how-to
-   * tutorial
-   * reference
-   * example
-   * learning-path
-   * process-overview
-   * release-note
-
-For more information on content types, see :ref:`Content types <ContentTypes>`.
-
-* ``:experience:``: The level of experience required to understand the article.
-
-At least one of the following values is expected:
-
-   * beginner
-   * intermediate
-   * expert
-
-* ``:area:``: The area of ROS documentation the article belongs to and it's position in the documentation hierarchy.
-  For example, an ``:area:`` of ``community``, ``contributing`` indicates the article belongs to the ``community`` section, and within that, the ``contributing`` subsection.
-  In this case, ``community`` is the primary value, which is used for building lists of related articles and packages.
-  All articles must have a value for ``:area:``.
-
-  One of the following ``:area:`` and corresponding subsection values is expected:
+To add a value for the ``:area:`` field, use the following formatting and naming conventions:
 
  * community
 
@@ -96,7 +86,8 @@ At least one of the following values is expected:
 
  * tools
 
-   * introspection-and-analysis
+   * introspection
+   * analysis
    * node-management
    * debugging
    * builds
@@ -110,52 +101,127 @@ At least one of the following values is expected:
    * navigation
    * perception
 
-``.. showmeta::``
-~~~~~~~~~~~~~~~~~
+Required related directives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``.. showmeta::`` directive renders the specified metadata at the top of a published article.
+Each ROS article must contain the ``.. showmeta::`` and  ``.. short-description::`` related directives to manage visible page metadata and article summaries.
 
-The following ``.. showmeta::`` block should be included in each article:
+``.. showmeta::`` renders the specified metadata at the top of a published article.
+
+Add the following related directive to your article:
+
+ .. code-block:: rst
+
+    .. showmeta::
+       :order: area, contentType, experience
+       :labels: area=Area, contentType=Content type, experience=Level
+
+``.. short-description::``: Provides a two or three sentence explanation about the article's content.
+
+  Use the following structure to create a short description, making sure your sentences answer each of the questions:
+
+  * Sentence 1 - Context: Why would a user be interested in this reading the article?
+
+  * Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
+
+  * Sentence 3 - Outcome: What will the user be able to do after reading the article or following the guidance?
+    For ``about`` type articles, this sentence is optional.
+
+You can use the following examples to guide you.
+
+Short description for :doc:`About ROS<../../../About-ROS>`:
 
 .. code-block:: rst
 
-   .. showmeta::
-      :order: area, contentType, experience
-      :labels: area=Area, contentType=Content type, experience=Level
+  .. short-description::
 
-``.. short-description::``
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+   This article introduces the main areas of the ecosystem and outlines their intended use.
 
-The ``.. short-description::`` directive explains in two or three sentences what an article is about.
-Use the following structure to create a short description, making sure your sentences answer each of the questions:
+Short description for :doc:`Using the Node Interfaces Template Class (C++) — tutorial<../../../ROS-Framework/nodes/Working-with-nodes/Using-Node-Interfaces-Template-Class>`:
 
-* Sentence 1 - Context: Why would a user be interested in this reading the article?
+  .. code-block:: rst
 
-* Sentence 2 - Purpose: What does the article describe or what will a user get out of reading it?
+    .. short-description::
 
-* Sentence 3 - Outcome: What will the user be able to do after reading the article or following the guidance?
+    Different ROS node types can expose the same capabilities through different C++ classes.
+    This tutorial explains how to use ``rclcpp::node_interfaces::NodeInterfaces<>`` to write functions that accept both standard and lifecycle nodes.
+    After completing it, you can pass node interfaces compactly and retrieve node information reliably.
 
-For ``about`` type articles, the third sentence is optional.
+Optional metadata
+~~~~~~~~~~~~~~~~~
 
-Related packages or articles
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Some metadata is optional meaning that omitting it will only trigger a warning rather than cause the documentation build to fail.
+It's best practice to include the optional metadata.
 
-Related packages or articles are added to an article based on the primary value in the ``:area:`` directive.
+In the ``.. meta::`` directive, the following fields and corresponding values are optional.
 
-General formatting guidelines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* ``:contentType:``: The type of content in the article.
+  The value for this field helps structure search results and allows readers to filter content to find the information they need.
 
-The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
-This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
-When formatting your ``reStructuredText`` file make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.
-Also, be mindful of the use of white space in your file!
-The ROS documentation linter will not accept pull requests with trailing white space.
-We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
+Add one of the following values:
 
-You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
+   * about
+   * how-to
+   * tutorial
+   * reference
+   * example
+   * learning-path
+   * process-overview
+   * release-note
 
-This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information on content types, see :ref:`Content types <ContentTypes>`.
+
+* ``:experience:``: The level of experience required to understand the article.
+
+Add one or more of the following values:
+
+   * beginner
+   * intermediate
+   * expert
+
+* ``:distribution:``: Enables the documentation to work across multiple ROS distributions.
+
+Add the following value:
+
+  * ``{DISTRO}``
+
+* ``:product:``: Identifes which ROS product the article belongs to.
+
+Add the following value:
+
+ * ``{PRODUCT}``
+
+Related content
+^^^^^^^^^^^^^^^
+
+Related content is the packages or articles that are added to an article based on the primary value in the ``:area:`` directive.
+
+If you want to add related content manually, use the following formatting and naming conventions.
+You can check :doc:`About client libraries <../../../ROS-Framework/About-Client-Libraries>` for an example.
+
+.. code-block:: rst
+
+  Related content
+  ---------------
+
+  Related articles
+  ~~~~~~~~~~~~~~~~
+
+  * Related article here
+
+  Related packages
+  ~~~~~~~~~~~~~~~~
+
+  Core ROS packages
+  ^^^^^^^^^^^^^^^^^
+
+  * Package here
+
+  Community packages
+  ^^^^^^^^^^^^^^^^^^
+
+  * Package here
 
 Table of contents
 ^^^^^^^^^^^^^^^^^
@@ -442,6 +508,9 @@ The main purpose of content types is for setting expectations for humans and AI 
 The patterns defined by content types are also very valuable for enabling efficient content creation and maintenance.
 To best support information retrieval by both humans and machines, each article contains a single content type.
 
+Most ROS articles should be one of the following content types.
+Use the examples in the following table for guidance about the type of article you are creating.
+
 .. list-table::
    :header-rows: 1
 
@@ -470,7 +539,7 @@ To best support information retrieval by both humans and machines, each article 
      - Use for setting out guidance for complex processes.
 
        Useful for all levels of experience.
-     - :doc:`Debugging <../../../Developer-Tools/Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems>`
+     - No example currently
    * - How-to
      - Procedure for how to do something.
 
@@ -508,12 +577,32 @@ To best support information retrieval by both humans and machines, each article 
        The article normally shouldn't include instructional or conceptual information.
 
        The main reference docs will be API docs for packages.
-     - tbc
+     - This article
 
-Related content
----------------
-<placeholder>
+Related articles
+----------------
+
+* :doc:`Contributing to documentation<../../../The-ROS2-Project/Contributing/Contributing-to-documentation>`
+
+* :doc:`Creating or updating documentation<../../../The-ROS2-Project/Contributing/Documentation/Creating-or-updating-documentation>`
 
 FAQs
 ----
-<placeholder>
+
+What metadata and directives are required in a ROS documentation article?
+  Every ROS article must include a ``.. meta::`` directive with an ``:area:`` field.
+  It must also include the ``.. showmeta::`` and ``.. short-description::`` directives.
+  A missing, empty, or incorrect ``:area:`` value causes the documentation build to fail.
+
+How should I format sentences and white space in a ROS reStructuredText file?
+  Write only one sentence per line to make the file easier to review and modify.
+  Do not leave trailing white space, because the ROS documentation linter will not accept pull requests that contain it.
+
+When should I use bash instead of console for a code block?
+  Use bash for commands or content intended to be copied into a script file.
+  Use console for commands that readers should run in a terminal, especially when you also need to show terminal output.
+  In console blocks, prefix command lines with $ or # so the copy button copies commands rather than output.
+
+When should I use ``:doc:`` and ``:ref:`` for internal links?
+  Use ``:doc:`` to link to another article in the ROS documentation, using its relative path.
+  Use ``:ref:`` to link to a defined target such as a heading, image, or code section in the same article or another article.
