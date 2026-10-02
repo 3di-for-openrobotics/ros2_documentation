@@ -55,7 +55,7 @@ A pull request can be merged if all of the following are true:
 * The CI build reports a passing result on all platforms
 * The PR has been reviewed and approved by at least one maintainer
 
-For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR`.
+For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Reviewing-a-PR`.
 
 After a PR is merged, it will automatically get built with the next `nightlies <https://ci.ros2.org/view/nightly>`__.
 It is highly recommended to check the nightlies after merging pull requests to ensure no regressions have occurred.
@@ -141,22 +141,6 @@ However, any backported code must not break `API <https://en.wikipedia.org/wiki/
 If a change can be backported without breaking API or ABI, then a new pull request targeting the appropriate branch should be created.
 The new pull request should be added to the appropriate distributions project board at https://github.com/orgs/ros2/projects.
 The new pull request should have all of the steps run as before, but making sure to target the distribution in question for CI, etc.
-
-Responding to issues
---------------------
-
-Package maintainers should also look at incoming issues on the repository and triage the problems that users are having.
-
-For issues that look like questions, the issue should be closed and the user redirected to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ .
-
-If an issue looks like a problem, but is not relevant to this particular repository, it should be moved to the appropriate repository with the GitHub "Transfer issue" button.
-
-If the reporter has not provided enough information to determine the cause of the problem, more information should be requested from the reporter.
-
-If this is a new feature, tag the issue with "help-wanted".
-
-Any remaining issues should be reproduced, and determined if they are truly a bug.
-If it is a bug, fixes are highly appreciated.
 
 Getting help
 ------------
