@@ -14,11 +14,18 @@
 Learning about data visualization - tutorial
 ============================================
 
+.. short-description::
+   Markers let a ROS node display simple geometry in RViz without creating a custom display plugin.
+   This article explains how to publish visualization_msgs/msg/Marker messages for basic shapes.
+   After you follow it, you can show cubes, spheres, arrows, and cylinders in RViz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 RViz is a 3D visualizer for ROS.
 This article walks you through starting RViz, showing simple shapes from a marker publisher, and controlling the 3D view.
 A hands-on exercise with sample marker shapes gives you practice viewing 3D data in RViz.
-
-**Area: Visualization, Tools | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 3
