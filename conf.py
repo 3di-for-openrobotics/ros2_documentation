@@ -70,7 +70,9 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['**/_*.rst']
+# source/_internal holds reusable snippets that are pulled into pages with the
+# ".. include::" directive; they are never rendered as standalone pages.
+exclude_patterns = ['**/_*.rst', '_internal/**']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -90,6 +92,8 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
+    'short_description',
+    'showmeta'
 ]
 
 # Intersphinx mapping
@@ -186,6 +190,7 @@ macros = {
     'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
     'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
+    'PRODUCT': 'ROS 2',
 }
 
 html_favicon = 'favicon.ico'
@@ -339,7 +344,7 @@ def smv_rewrite_configs(app, config):
         app.config.ogp_site_url = app.config.html_baseurl + '/'
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        app.config.html_logo = 'source/Get-Started/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
         app.config.ogp_image = '_static/' + app.config.smv_current_version + '-small.png'
 
 

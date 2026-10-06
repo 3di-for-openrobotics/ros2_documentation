@@ -3,11 +3,30 @@
     About-ROS-Interfaces
     How-To-Guides/Topics-Services-Actions
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _interfaces-topics-services-actions:
 .. _TopicsServicesActions:
 
 Interfaces (topics, services, actions)
 ======================================
+
+.. short-description::
+   Interfaces in ROS define how nodes exchange data, helping you design communication between different parts of a robotic application.
+   This article explains topics, services, and actions, and helps you choose the right interface type for different communication patterns.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :maxdepth: 1
@@ -18,12 +37,9 @@ Interfaces (topics, services, actions)
    interfaces/About-Services
    interfaces/About-Actions
 
-
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
 With this information, you'll be able to select the right interfaces for your purposes.
-
-**Area: ROS-framework | Content-type: concept | Experience: beginner**
 
 Summary
 -------
@@ -114,11 +130,11 @@ This interface type has the following main characteristics:
 .. mermaid::
 
    sequenceDiagram
-    participant Action client
-    participant Action server
-    Client->>Action Server: Sends a goal
-    Action server-->>Action client: Provides feedback (periodic)
-    Action server-->>Action client: Sends a result
+    participant c as Action client
+    participant s as Action server
+    c->>s: Sends a goal
+    s-->>c: Provides feedback (periodic)
+    s-->>c: Sends a result
 
 Key differences between ROS interfaces
 --------------------------------------
