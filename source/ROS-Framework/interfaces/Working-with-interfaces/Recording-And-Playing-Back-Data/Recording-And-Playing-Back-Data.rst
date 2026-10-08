@@ -1,5 +1,5 @@
 .. meta::
-   :contentType: tutorial
+   :contentType: how-to
    :experience: beginner
    :area: interfaces, framework
    :distribution: {DISTRO}
@@ -16,19 +16,13 @@ Recording and playing back data - how-to
 ========================================
 
 .. short-description::
-   ``ros2 bag`` records data from your ROS system so you can inspect, share, and replay it later.
-   This article shows how to record and play back topic, service, and action data.
-   After following these steps, you can create bag files, examine their contents, and replay them for debugging or analysis.
+  ``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
+  This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
+  Hands-on exercises walk you through the same pattern for topics, services, and actions.
 
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
-
-``ros2 bag`` records data from topics, services, and actions in a ROS system so you can save and replay it later.
-This article shows you how to record, inspect, and play back that data with the ``ros2 bag`` command-line tools.
-Hands-on exercises walk you through the same pattern for topics, services, and actions.
-
-**Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
@@ -845,7 +839,7 @@ More articles:
 * :doc:`Understanding topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Understanding actions <../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`
-* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
+* :doc:`Overriding QoS policies for recording and playback <../../../../Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback>`
 
 External resources:
 
