@@ -46,8 +46,6 @@ If you use Linux or macOS, but are not already familiar with the shell, follow `
 Steps
 -----
 
-.. _SourceTerminal:
-
 1 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
