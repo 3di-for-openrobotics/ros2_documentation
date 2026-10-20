@@ -1,0 +1,5 @@
+# ALREADY looks canonical (spot-check)
+# Count: 0
+# Has Related content + 'Related articles:' + ros-related-articles directive.
+# No write expected unless spot-check finds drift.
+

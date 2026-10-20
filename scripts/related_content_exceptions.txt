@@ -1,0 +1,65 @@
+# Confirmed exclusions / special cases (NOT in bulk TO UPDATE)
+
+## Full exclusion (no Related content) — named pages
+FOUND	Releases.rst
+FOUND	About-ROS.rst
+FOUND	index.rst
+FOUND	Contributing-To-ROS.rst
+FOUND	Citations.rst
+FOUND	Contact.rst
+FOUND	The-ROS2-Project.rst
+FOUND	Migration-and-Upgrades.rst
+FOUND	Integrations-and-related.rst
+FOUND	Capabilities.rst
+FOUND	Developer-Tools.rst
+FOUND	ROS-Framework.rst
+FOUND	Get-Started.rst
+FOUND	Developer-Tools/Visualization/RViz/RViz-Main.rst
+FOUND	ROS-Framework/client-libraries/Working-with-Client-Libraries.rst
+
+## Full exclusion — entire Releases/ tree (31 files)
+Releases/Alpha-Overview.rst
+Releases/Beta1-Overview.rst
+Releases/Beta2-Overview.rst
+Releases/Beta3-Overview.rst
+Releases/Development.rst
+Releases/End-of-Life.rst
+Releases/Galactic-Geochelone-Complete-Changelog.rst
+Releases/Humble-Hawksbill-Complete-Changelog.rst
+Releases/Iron-Irwini-Complete-Changelog.rst
+Releases/Jazzy-Jalisco-Complete-Changelog.rst
+Releases/Kilted-Kaiju-Complete-Changelog.rst
+Releases/Lyrical-Luth-Complete-Changelog.rst
+Releases/lyrical/release-timeline.rst
+Releases/lyrical/supported-platforms.rst
+Releases/makoa/release-timeline.rst
+Releases/makoa/supported-platforms.rst
+Releases/Release-Ardent-Apalone.rst
+Releases/Release-Bouncy-Bolson.rst
+Releases/Release-Crystal-Clemmys.rst
+Releases/Release-Dashing-Diademata.rst
+Releases/Release-Eloquent-Elusor.rst
+Releases/Release-Foxy-Fitzroy.rst
+Releases/Release-Galactic-Geochelone.rst
+Releases/Release-Humble-Hawksbill.rst
+Releases/Release-Iron-Irwini.rst
+Releases/Release-Jazzy-Jalisco.rst
+Releases/Release-Kilted-Kaiju.rst
+Releases/Release-Lyrical-Luth.rst
+Releases/Release-Makoa-Mata-mata.rst
+Releases/Release-Process.rst
+Releases/Release-Rolling-Ridley.rst
+
+## Special case — About capabilities (Community-contributed packages + Related articles only)
+FOUND	Capabilities/About-Simulation.rst
+FOUND	Capabilities/About-Motion-planning.rst
+FOUND	Capabilities/About-Navigation.rst
+FOUND	Capabilities/About-Perception.rst
+
+## Special case — WiP About articles (depends on OR PRs)
+FOUND	Developer-Tools/About-introspection-and-analysis.rst
+FOUND	Developer-Tools/About-Launch.rst
+FOUND	Developer-Tools/About-Debugging.rst
+FOUND	Developer-Tools/About-Build.rst
+FOUND	Developer-Tools/About-visualization.rst
+FOUND	Developer-Tools/About-package-documentation.rst

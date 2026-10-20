@@ -1,0 +1,7 @@
+# MISSING or empty meta :area:
+# Count: 1
+# Adding .. ros-related-articles:: will fail the Sphinx build.
+# Fix area before or with the Related content update.
+# These paths may also appear in other sublists.
+
+Get-Started/Installation/Snapshot-Repository.rst

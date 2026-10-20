@@ -1,0 +1,5 @@
+# Comment placeholder only (subset of append)
+# Count: 0
+# Has '.. Related content' comment, no live Related content heading.
+# Also included in related_content_to_append.txt.
+
