@@ -50,16 +50,27 @@ Releases/Release-Makoa-Mata-mata.rst
 Releases/Release-Process.rst
 Releases/Release-Rolling-Ridley.rst
 
-## Special case — About capabilities (Community-contributed packages + Related articles only)
+## Special case — About capabilities (after Community-contributed packages: Related content > Related articles; no Related packages)
 FOUND	Capabilities/About-Simulation.rst
 FOUND	Capabilities/About-Motion-planning.rst
 FOUND	Capabilities/About-Navigation.rst
-FOUND	Capabilities/About-Perception.rst
+FOUND	Capabilities/About-Perception.rst ComingSoon=yes
 
-## Special case — WiP About articles (depends on OR PRs)
-FOUND	Developer-Tools/About-introspection-and-analysis.rst
-FOUND	Developer-Tools/About-Launch.rst
-FOUND	Developer-Tools/About-Debugging.rst
-FOUND	Developer-Tools/About-Build.rst
-FOUND	Developer-Tools/About-visualization.rst
-FOUND	Developer-Tools/About-package-documentation.rst
+## WiP About — EXCLUDE this ticket (still has Coming Soon)
+EXCLUDE	Developer-Tools/About-introspection-and-analysis.rst
+EXCLUDE	Developer-Tools/About-Debugging.rst
+EXCLUDE	Developer-Tools/About-Build.rst
+EXCLUDE	Developer-Tools/About-visualization.rst
+EXCLUDE	Developer-Tools/About-package-documentation.rst
+
+## WiP About — TREAT like Capabilities/About (Coming Soon gone; append Related content > Related articles at end)
+SPECIAL	Developer-Tools/About-Launch.rst
+
+## Possibly over-appended (still has Coming Soon AND already has .. ros-related-articles::)
+Developer-Tools/About-testing.rst
+ROS-Framework/interfaces/actions/Working-with-actions.rst
+ROS-Framework/interfaces/services/Working-with-services.rst
+ROS-Framework/interfaces/topics/Working-with-topics.rst
+ROS-Framework/interfaces/Working-with-interfaces.rst
+ROS-Framework/nodes/Working-with-nodes.rst
+ROS-Framework/parameters/Working-with-parameters.rst

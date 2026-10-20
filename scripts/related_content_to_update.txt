@@ -1,5 +1,7 @@
 # Standard bulk Related-content TO UPDATE
-# source/**/*.rst minus _* paths, Releases/, named exclusions, and special-case pages
+# source/**/*.rst minus _* paths, Releases/, named exclusions,
+# Capabilities/About specials, and all WiP About pages (whether
+# Coming Soon exclude or treat-like-capabilities special).
 # Count: 268
 
 Capabilities/Motion-planning/Real-Time-Programming.rst

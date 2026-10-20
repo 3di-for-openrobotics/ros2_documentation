@@ -8,9 +8,9 @@
 # .. ros-related-articles::
 # 
 
-to_append: 231 -> related_content_to_append.txt
+to_append: 1 -> related_content_to_append.txt
 to_normalize: 36 -> related_content_to_normalize.txt
 has_related_packages: 1 -> related_content_has_related_packages.txt
 missing_area: 1 -> related_content_missing_area.txt
-already_canonicalish: 0 -> related_content_already_canonicalish.txt
+already_canonicalish: 230 -> related_content_already_canonicalish.txt
 comment_placeholder (info): 0 -> related_content_comment_placeholder.txt

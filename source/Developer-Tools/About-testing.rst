@@ -11,10 +11,3 @@ Testing
 =======
 
 Coming Soon
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::
