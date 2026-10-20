@@ -332,6 +332,11 @@ Related content
 
 Related articles:
 
+* :doc:`First steps with ROS <../../First-Steps>`
+* :doc:`../Configuring-ROS2-Environment`
+* :doc:`../../ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
+* :doc:`../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`
+
 .. ros-related-articles::
 
 Packages/reference:

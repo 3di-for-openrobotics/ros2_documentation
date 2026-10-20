@@ -1,7 +1,6 @@
 # Review/revert candidates: Coming Soon still present, but Related directive already added
-# Count: 7
+# Count: 6
 
-Developer-Tools/About-testing.rst
 ROS-Framework/interfaces/actions/Working-with-actions.rst
 ROS-Framework/interfaces/services/Working-with-services.rst
 ROS-Framework/interfaces/topics/Working-with-topics.rst

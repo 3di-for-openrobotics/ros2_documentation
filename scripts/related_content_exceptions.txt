@@ -67,7 +67,6 @@ EXCLUDE	Developer-Tools/About-package-documentation.rst
 SPECIAL	Developer-Tools/About-Launch.rst
 
 ## Possibly over-appended (still has Coming Soon AND already has .. ros-related-articles::)
-Developer-Tools/About-testing.rst
 ROS-Framework/interfaces/actions/Working-with-actions.rst
 ROS-Framework/interfaces/services/Working-with-services.rst
 ROS-Framework/interfaces/topics/Working-with-topics.rst

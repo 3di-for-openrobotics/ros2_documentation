@@ -1,5 +1,5 @@
 # ALREADY looks canonical (spot-check)
-# Count: 230
+# Count: 232
 # Has Related content + 'Related articles:' + ros-related-articles directive.
 # No write expected unless spot-check finds drift.
 
@@ -12,7 +12,6 @@ Capabilities/Simulation/URDF/Exporting-an-URDF-File.rst
 Capabilities/Simulation/URDF/URDF-Main.rst
 Capabilities/Simulation/URDF/Using-URDF-with-Robot-State-Publisher-cpp.rst
 Capabilities/Simulation/URDF/Using-URDF-with-Robot-State-Publisher-py.rst
-Developer-Tools/About-testing.rst
 Developer-Tools/Build/About-Build-System.rst
 Developer-Tools/Build/About-Cross-Compilation.rst
 Developer-Tools/Build/Ament-CMake-Documentation.rst
@@ -109,7 +108,9 @@ Get-Started/Installation/RMW-Implementations/Non-DDS-Implementations.rst
 Get-Started/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.rst
 Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations.rst
 Get-Started/Installation/ROS-2-Mirrors.rst
+Get-Started/Installation/Ubuntu-Install-Debs.rst
 Get-Started/Installation/Windows-Install-Binary.rst
+Get-Started/Introducing-Turtlesim/Introducing-Turtlesim.rst
 Integrations-and-related/Deploying-ROS-2-on-IBM-Cloud.rst
 Integrations-and-related/Related-Projects.rst
 Integrations-and-related/Related-Projects/Intel-ROS2-Projects.rst
@@ -205,6 +206,7 @@ ROS-Framework/nodes/About-Logging/About-Logging.rst
 ROS-Framework/nodes/Working-with-nodes.rst
 ROS-Framework/nodes/Working-with-nodes/Composition.rst
 ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication.rst
+ROS-Framework/nodes/Working-with-nodes/Managed-Nodes.rst
 ROS-Framework/nodes/Working-with-nodes/Using-callback-groups.rst
 ROS-Framework/nodes/Working-with-nodes/Using-Node-Interfaces-Template-Class.rst
 ROS-Framework/nodes/Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console.rst
