@@ -48,3 +48,10 @@ Nodes can provide configurable :doc:`parameters <About-Parameters>` to change be
 Nodes are often a complex combination of publishers, subscribers, service servers, service clients, action servers, and action clients, all at the same time.
 
 Connections between nodes are established through a distributed :doc:`discovery <nodes/About-Discovery>` process.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::
