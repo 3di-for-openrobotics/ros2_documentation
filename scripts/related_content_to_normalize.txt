@@ -1,39 +1,6 @@
 # NORMALIZE existing Related content (no Related packages)
-# Count: 33
+# Count: 0
 # Has 'Related content' but not yet the canonical articles directive shape.
 # Action: replace articles portion with canonical block.
 # Do not touch Related packages (none expected in this list).
 
-Developer-Tools/Debugging/Testing/Integration.rst
-Developer-Tools/Introspection-and-analysis/Service-Introspection.rst
-Get-Started/Configuring-ROS2-Environment.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Getting-Started-With-Ros2doctor.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Single-Package-Define-And-Use-Interface.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst
-ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst
-ROS-Framework/How-ROS-Works.rst
-ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection.rst
-ROS-Framework/interfaces/actions/Working-with-actions/Creating-an-Action.rst
-ROS-Framework/interfaces/actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst
-ROS-Framework/interfaces/actions/Working-with-actions/Writing-an-Action-Server-Client/Cpp.rst
-ROS-Framework/interfaces/actions/Working-with-actions/Writing-an-Action-Server-Client/Py.rst
-ROS-Framework/interfaces/services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services.rst
-ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics.rst
-ROS-Framework/interfaces/topics/Working-with-topics/Configuring-QoS-Overrides.rst
-ROS-Framework/interfaces/topics/Working-with-topics/Content-Filtering-Subscription.rst
-ROS-Framework/interfaces/topics/Working-with-topics/Wait-for-Acknowledgment.rst
-ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst
-ROS-Framework/nodes/Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes.rst
-ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst
-ROS-Framework/parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP.rst
-ROS-Framework/parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python.rst
-ROS-Framework/parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst
-The-ROS2-Project/Contributing/Contributing-to-documentation.rst
-The-ROS2-Project/Contributing/Making-a-PR.rst
-The-ROS2-Project/Contributing/Reporting-an-issue.rst
-The-ROS2-Project/Contributing/Reviewing-a-PR.rst
-The-ROS2-Project/Contributing/Triaging-an-issue.rst
