@@ -70,36 +70,10 @@ In this case, ``community`` is the primary value, which used for building lists 
 
    If the ``:area:`` field is missing or present but the value is empty or incorrect, the documentation build will fail.
 
-To add a value for the ``:area:`` field, use the following formatting and naming conventions:
+To add a value for the ``:area:`` field, use one or more of the following values
+(from ``tools/enhance.yaml``):
 
- * community
-
-   * contributing
-
- * installation
- * framework
-
-   * nodes
-   * interfaces
-   * parameters
-   * client-libraries
-
- * tools
-
-   * introspection
-   * analysis
-   * node-management
-   * debugging
-   * builds
-   * visualization
-   * package-documentation
-
- * capabilities
-
-   * simulation
-   * motion-planning-and-manipulation
-   * navigation
-   * perception
+.. enhance-allowed:: area
 
 Required related directives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

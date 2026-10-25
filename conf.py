@@ -89,6 +89,7 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
     'sphinx_adopters',
+    'ros_enhance_allowed',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
