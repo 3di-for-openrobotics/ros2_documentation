@@ -9,8 +9,9 @@ How ROS works
 =============
 
 .. short-description::
-   ROS systems use modular software elements that process data concurrently and communicate through defined interfaces.
-   This article provides a high-level overview of how ROS works, including nodes, the ROS graph, communication patterns, and the tools used to inspect and interact with a system.
+   ROS systems use a network of modular software elements, called nodes, which process data concurrently and can communicate with each other throughthe topic, service, and action interfaces.
+   The ROS graph refers to the network of nodes.
+   This article provides a high-level overview of how ROS works
 
 .. showmeta::
    :order: area, contentType, experience
@@ -18,12 +19,6 @@ How ROS works
 
 .. toctree::
    :hidden:
-   
-A ROS system is a network of cooperating processes that exchange data.
-This article explains the ROS graph and how the main framework pieces relate to one another.
-
-**Area: Framework | Content-type: about | Experience: beginner**
-
 .. contents:: Table of Contents
    :local:
 
@@ -42,13 +37,14 @@ See :doc:`About-Nodes`
 Each node can then send and receive data from other nodes via topics, services, actions, or parameters.
 See :doc:`Interfaces-Topics-Services-Actions`, :doc:`About-Client-Libraries`, and :doc:`About-Parameters`
 
-Topics handle continuous data streams.
-Services handle short request and response calls.
-Actions handle longer tasks with feedback or cancellation.
+* Topics handle continuous data streams.
+* Services handle short request and response calls.
+* Actions handle longer tasks with feedback or cancellation.
 
-The ROS graph
+How ROS works
+-------------
 
-Communication between nodes is uses Data Distrtibution Service (DDS) middleware. 
+Communication between nodes is managed using Data Distribution Service (DDS) middleware. 
 See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Middleware-Implementations`
 
 .. mermaid::
@@ -81,7 +77,6 @@ The ROS graph can be visualised in multiple ways. For example, the visualised RO
 The ``/teleop_turtle`` node publishes data to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
 
 .. image:: interfaces/topics/Understanding-ROS2-Topics/images/rqt_graph.png
-
 
 Related content
 ---------------
