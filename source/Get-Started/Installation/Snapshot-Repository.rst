@@ -209,3 +209,10 @@ Can I use a snapshot on a production robot?
 
 How can I get a snapshot of Debian packages from Ubuntu, e.g., ROS dependencies?
    `Ubuntu has its own snapshot service <https://snapshot.ubuntu.com/>`__.
+
+Related content
+---------------
+
+Related articles:
+
+.. ros-related-articles::

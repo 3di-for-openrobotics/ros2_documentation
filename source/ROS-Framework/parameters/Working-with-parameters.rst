@@ -30,10 +30,3 @@ Coming Soon
    Working-with-parameters/Using-ros2-param
    Working-with-parameters/Monitoring-For-Parameter-Changes-Python
    Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
-
-Related content
----------------
-
-Related articles:
-
-.. ros-related-articles::

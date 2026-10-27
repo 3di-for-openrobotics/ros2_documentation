@@ -130,7 +130,6 @@ Next steps
 ----------
 
 If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
-If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
 
 Related content
 ---------------
