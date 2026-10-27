@@ -1,8 +1,0 @@
-# APPEND canonical Related content block
-# Count: 2
-# No live 'Related content' heading (may include commented placeholders).
-# Action: append canonical block at end of file.
-# Skip / fix first if also listed in missing_area.
-
-Developer-Tools/About-testing.rst
-Get-Started/Installation/Snapshot-Repository.rst

@@ -1,6 +1,0 @@
-# NORMALIZE existing Related content (no Related packages)
-# Count: 0
-# Has 'Related content' but not yet the canonical articles directive shape.
-# Action: replace articles portion with canonical block.
-# Do not touch Related packages (none expected in this list).
-

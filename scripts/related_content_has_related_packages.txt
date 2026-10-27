@@ -1,6 +1,0 @@
-# HAS Related packages — surgical articles-only pass
-# Count: 1
-# Action: rewrite Related articles / insert directive only.
-# Do NOT modify Related packages section.
-
-ROS-Framework/About-Client-Libraries.rst

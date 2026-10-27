@@ -1,5 +1,0 @@
-# WiP About — TREAT like Capabilities/About (Coming Soon removed)
-# Append Related content > Related articles at end of page.
-# Count: 1
-
-Developer-Tools/About-Launch.rst
