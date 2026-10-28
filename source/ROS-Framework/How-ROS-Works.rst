@@ -9,8 +9,8 @@ How ROS works
 =============
 
 .. short-description::
-   ROS systems use a network of modular software elements, called nodes, which process data concurrently and can communicate with each other throughthe topic, service, and action interfaces.
-   The ROS graph refers to the network of nodes.
+   The ROS framework is the “plumbing” which allows for communication between parts of a robot, and within parts of a robot. 
+   This article provides an overview of how the main components work together to enable this
    This article provides a high-level overview of how ROS works
 
 .. showmeta::
@@ -29,8 +29,8 @@ Summary
 ROS systems use a network of modular software elements, called nodes, which process data concurrently and can communicate with each other through defined interfaces.
 The ROS graph refers to the network of nodes.
 
-Elements of the ROS framework
------------------------------
+Elements of a ROS system
+------------------------
 
 The ROS framework comprises multiple elements which allow you to build a complete robotics system that can receive data from sensors and transform that data into robotic actions.
 
@@ -40,8 +40,8 @@ Each node in ROS should be responsible for a single, modular purpose, such as co
 ROS nodes can process data concurrently and can communicate with each other.
 See :doc:`About-Nodes`.
 
-Communication between nodes is managed using Data Distribution Service (DDS) middleware. 
-See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Middleware-Implementations`
+Communication between nodes is managed using the middleware interface. 
+See :doc:`nodes/About-Discovery` and :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
 Each node can send and receive data from other nodes via topic, service, and action interfaces.
 See :doc:`Interfaces-Topics-Services-Actions`.
 
@@ -70,25 +70,29 @@ Real systems often combine several of these patterns inside the same nodes.
       N2 -->|action| N4[Node D]
 
 
-Visualize the ROS graph
-^^^^^^^^^^^^^^^^^^^^^^^
-
-The ROS graph can be visualised in multiple ways. For example, the visualised ROS graph using rqt in :doc:`interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics` shows two nodes, ``turtlesim`` and ``teleop_turtle``.
+The ROS graph can be visualised in multiple ways. 
+For example, the visualised ROS graph using rqt in :doc:`interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics` shows two nodes, ``turtlesim`` and ``teleop_turtle``.
 The ``/teleop_turtle`` node publishes data to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
 
 .. image:: interfaces/topics/Understanding-ROS2-Topics/images/rqt_graph.png
 
-ROS CLI and API
----------------
+ROS CLI and client libraries
+----------------------------
 
 You can build with ROS using the command line and the ROS API.
 
-If you are new to ROS, working with the CLI will help you understand ROS elements and how to interact with them.
-ROS command line tools allow you to explore a live graph before writing your own nodes, and client libraries let you implement the same concepts in code.
-See :doc:`../First-Steps`.
+* ROS CLI:
+   The ROS command line tools allow you to interact with your ROS system using the command line interface (CLI).
+   You can use the CLI for a variety of tasks including launching or investigating nodes.
+* ROS API:
+   The ROS API allows you to build and run complex systems using client libraries.
+   For a more in-depth description of the ROS API, see :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
 
-After you are familiar with the ROS CLI, the ROS API allows you to create your own, more complex, ROS components.
-See :doc:`client-libraries/About-Internal-Interfaces/About-Internal-Interfaces`.
+.. note::
+   If you are new to ROS, working with the CLI will help you understand ROS elements and how to interact with them.
+   ROS command line tools allow you to explore a live graph before writing your own nodes, and client libraries let you implement the same concepts in code.
+   See :doc:`../First-Steps`.
+
 
 Related content
 ---------------
