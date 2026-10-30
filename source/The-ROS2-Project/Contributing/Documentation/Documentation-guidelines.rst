@@ -37,8 +37,8 @@ General formatting guidelines
 
 The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
-When formatting your ``reStructuredText`` file, write only one sentence per line.
-That makes reviewing and modifying the file much easier.
+
+When formatting your ``reStructuredText`` file, **make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
 Also, be mindful of the use of white space in your file!
 The ROS documentation linter will not accept pull requests with trailing white space.
 We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
@@ -246,7 +246,7 @@ Headings
 ^^^^^^^^
 
 There are four main heading types used in the documentation.
-Note that the number of symbols has to match the length of the title.
+Note that the number of underline characters must match the length of the title.
 
 .. code-block:: rst
 
@@ -313,26 +313,55 @@ Code blocks: ``bash`` vs. ``console``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
-Choosing the right one ensures that the content is formatted correctly and that the copy button copies the right content.
-The following section explains each one.
-You can skip to the end of this section for a list of use cases and corresponding examples.
+Choosing the correct one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
 
-``bash`` is meant for scripts, for example for bash commands from a script file.
-Example result:
+* ``bash`` is meant for scripts, e.g., for bash commands from a script file.
+   The entire code block is copied when the copy button is selected.
+* ``console`` is meant for commands to be run in a terminal, optionally including their output.
+   Only lines with a prompt symbol are copied to the clipboard when the copy button is selected.
+
+bash
+~~~~
+Use ``.. code-block:: bash`` without ``$``:
 
 .. code-block:: bash
 
    export ROS_DOMAIN_ID=42
    ros2 run turtlesim turtlesim_node
 
-``console`` is meant for commands to be run in a terminal, optionally including their output.
+``bash`` can be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
+
+console
+~~~~~~~
+
+We recommend using ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
 This makes it clear that the given commands need to be run in a terminal.
-It also allows you to separate command lines from output lines using prompt symbols such as ``$`` or ``#``.
-Command lines are formatted as bash commands, while output lines are formatted as normal text.
-The prompt symbol is not selectable.
-Clicking the copy button in the upper right-hand corner copies *only* the commands, not the outputs or the prompt symbols.
-If a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
-Example result:
+
+``console`` separates command lines from output lines using prompt symbols such as ``$`` or ``#``.
+Lines that begin with a prompt symbol are formatted as bash commands and other lines are formatted as normal text.
+The prompt symbol cannot be selected in the browser, and the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
+This means that if a ``console`` code block does not have any lines with a prompt symbol, the copy button does not copy any lines.
+
+If there is output that needs to be displayed, include it in the same block:
+
+.. code-block:: console
+
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run turtlesim turtlesim_node
+   [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
+   [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+.. note::
+
+   If some output lines start with ``#``, place the output in a separate ``.. code-block:: text``.
+   It is crucial to separate commands from their output because the ``#`` symbol is used to include the content in the clipboard.
+
+Bash and console examples
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can compare the text that is copied to your clipboard when you select the copy button for the two different types of code blocks.
+
+The following code block is ``console``:
 
 .. code-block:: console
 
@@ -341,7 +370,7 @@ Example result:
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-Compare the previous example result with a ``bash`` code-block:
+the following code block is ``bash``:
 
 .. code-block:: bash
 
@@ -349,34 +378,6 @@ Compare the previous example result with a ``bash`` code-block:
    $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
-
-To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
-To help choose between ``bash`` and ``console``, see the following list of use cases and corresponding examples:
-
-* Commands meant to be copied into a script file.
-  Use ``.. code-block:: bash`` without ``$``:
-
-  .. code-block:: bash
-
-     export ROS_DOMAIN_ID=42
-     ros2 run turtlesim turtlesim_node
-
-* Commands meant to be run in a terminal.
-  It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
-
-  If there is output that needs to be displayed, include it in the same block:
-
-  .. code-block:: console
-
-     $ source /opt/ros/{DISTRO}/setup.bash
-     $ ros2 run turtlesim turtlesim_node
-     [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
-     [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
-
-  .. note::
-
-     If some output lines start with ``#``, it is crucial to separate commands from their output because the ``#`` symbol is used to denote a command.
-     Therefore, place the output in a separate ``.. code-block:: text``.
 
 Images
 ^^^^^^
