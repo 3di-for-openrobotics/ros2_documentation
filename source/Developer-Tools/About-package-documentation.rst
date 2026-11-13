@@ -36,6 +36,8 @@ Core ROS packages
 
 * :doc:`rosdoc2 <Package-documentation/Documenting-a-ROS-2-Package>`: Tool for documenting a ROS package.
 
+.. Community-contributed packages:
+
 Package documentation locations
 -------------------------------
 
